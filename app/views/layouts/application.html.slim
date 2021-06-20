@@ -9,5 +9,7 @@ html
     = javascript_pack_tag 'application'
   body
     = render 'shared/header'
+    - if flash.any?
+      = render 'shared/flash_message'
     = yield
     = render 'shared/footer'

@@ -1,0 +1,22 @@
+= form_with model: user, local: true do |f|
+
+  = render 'shared/error_message', object: f.object
+
+  .field
+    = f.label :name
+    = f.text_field :name
+
+  .field
+    = f.label :email
+    = f.email_field :email
+
+  .field
+    = f.label :password
+    = f.password_field :password
+
+  .field
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+  
+  .actions
+    = f.submit '登録'

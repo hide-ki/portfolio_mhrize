@@ -24,6 +24,9 @@ module PortfolioMhrize
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
+    # 言語の設定
+    config.i18n.default_locale = :ja
+
     # タイムゾーンの設定
     # アプリケーションの時刻の設定
     config.time_zone = 'Tokyo'
