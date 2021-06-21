@@ -26,6 +26,8 @@ module PortfolioMhrize
 
     # 言語の設定
     config.i18n.default_locale = :ja
+    # 言語を読み込むためのpathを通す
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 
     # タイムゾーンの設定
     # アプリケーションの時刻の設定

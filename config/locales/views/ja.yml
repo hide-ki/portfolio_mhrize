@@ -1,0 +1,20 @@
+ja:
+  defaults:
+    login: 'ログイン'
+    register: '登録'
+    logout: 'ログアウト'
+    sign_up: '新規登録'
+  users:
+    new:
+      title: 'ユーザー新規登録'
+    create:
+      success: '登録が完了しました。'
+      fail: '登録に失敗しました。'
+  user_sessions:
+    new:
+      title: 'ログイン'
+    create:
+      success: 'ログインしました。'
+      fail: 'ログインに失敗しました。'
+
+  
