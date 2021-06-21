@@ -5,6 +5,7 @@ ja:
     logout: 'ログアウト'
     sign_up: '新規登録'
     mypage: 'マイページ'
+    update: '更新'
   users:
     new:
       title: 'ユーザー新規登録'
@@ -13,6 +14,14 @@ ja:
       fail: '登録に失敗しました。'
     show:
       title: 'ユーザー情報'
+      dialog: '削除してもよろしいですか？'
+    edit:
+      title: 'ユーザー編集'
+    update:
+      success: 'ユーザー情報を更新しました。'
+      fail: 'ユーザー情報の更新に失敗しました。'
+    destroy:
+      success: 'ユーザーを削除しました。'
   user_sessions:
     new:
       title: 'ログイン'

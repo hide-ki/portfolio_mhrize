@@ -1,8 +1,14 @@
+- provide :title, (t '.title')
+
 h1
   = t '.title'
 
-= @user.name
+= current_user.name
+br
+= current_user.email
 
-= @user.email
+= link_to '編集', edit_user_path(current_user)
+br
 
-= link_to '編集', '#'
+/ ダイアログの追加
+= link_to '削除', user_path(current_user), method: :delete, data: { confirm: (t '.dialog') }

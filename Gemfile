@@ -65,3 +65,6 @@ gem 'html2slim'
 
 gem 'sorcery'
 gem 'rails-i18n'
+# デバッグ用(binding.pry)
+gem 'pry-rails'
+gem 'pry-byebug'
