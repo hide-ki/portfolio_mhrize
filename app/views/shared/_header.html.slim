@@ -1,3 +1,3 @@
-= link_to (t 'defaults.sign_up'), new_user_path
-br
-= link_to (t 'defaults.login'), login_path
+= link_to (t 'defaults.mypage'), user_path(current_user)
+
+= link_to (t 'defaults.logout'), logout_path, method: :delete

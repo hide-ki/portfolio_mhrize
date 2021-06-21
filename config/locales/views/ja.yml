@@ -4,17 +4,22 @@ ja:
     register: '登録'
     logout: 'ログアウト'
     sign_up: '新規登録'
+    mypage: 'マイページ'
   users:
     new:
       title: 'ユーザー新規登録'
     create:
       success: '登録が完了しました。'
       fail: '登録に失敗しました。'
+    show:
+      title: 'ユーザー情報'
   user_sessions:
     new:
       title: 'ログイン'
     create:
       success: 'ログインしました。'
       fail: 'ログインに失敗しました。'
+    destroy:
+      success: 'ログアウトしました。'
 
   

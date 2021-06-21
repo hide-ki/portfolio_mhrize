@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 
   def show
   # 後々、showアクションに自分の投稿を一覧で表示させる
+    @user = User.find(params[:id])
   end
 
   private

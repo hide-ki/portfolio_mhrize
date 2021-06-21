@@ -8,7 +8,10 @@ html
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_pack_tag 'application'
   body
-    = render 'shared/header'
+    - if logged_in?
+      = render 'shared/header'
+    - else
+      = render 'shared/before_login_header'
     - if flash.any?
       = render 'shared/flash_message'
     = yield

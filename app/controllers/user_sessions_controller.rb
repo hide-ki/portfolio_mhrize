@@ -14,4 +14,10 @@ class UserSessionsController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    logout
+    flash[:success] = t '.success'
+    redirect_to login_path
+  end
 end
