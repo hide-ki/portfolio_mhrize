@@ -33,6 +33,8 @@ ja:
     destroy:
       success: 'ログアウトしました。'
   posts:
+    show:
+      title: '装備詳細'
     new:
       title: '投稿'
     create:
