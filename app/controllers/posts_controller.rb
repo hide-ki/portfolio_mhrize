@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update]
+  before_action :set_post, only: %i[show edit update destroy]
 
   def index; end
 
@@ -31,6 +31,12 @@ class PostsController < ApplicationController
       flash.now[:fail] = t '.fail'
       render :edit
     end
+  end
+
+  def destroy
+    @post.destroy!
+    flash[:success] = t '.success'
+    redirect_to root_path
   end
 
 
