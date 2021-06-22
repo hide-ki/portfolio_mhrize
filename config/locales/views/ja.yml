@@ -1,5 +1,6 @@
 ja:
   defaults:
+    top: 'トップ'
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
@@ -32,8 +33,6 @@ ja:
     destroy:
       success: 'ログアウトしました。'
   posts:
-    index:
-      title: '投稿一覧'
     new:
       title: '投稿'
     create:

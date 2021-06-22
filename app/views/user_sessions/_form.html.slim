@@ -1,11 +1,11 @@
 = form_with model: user, url: url, local: true do |f|
   
   .field
-    = f.label :email
+    = f.label :email, User.human_attribute_name(:email)
     = f.email_field :email
 
   .field
-    = f.label :password
+    = f.label :password, User.human_attribute_name(:password)
     = f.password_field :password
 
   .actions
