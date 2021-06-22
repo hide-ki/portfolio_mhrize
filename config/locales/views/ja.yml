@@ -8,6 +8,7 @@ ja:
     mypage: 'マイページ'
     update: '更新'
     post: '投稿'
+    edit: '編集'
   users:
     new:
       title: 'ユーザー新規登録'
@@ -40,6 +41,8 @@ ja:
     create:
       success: '投稿が作成されました。'
       fail: '投稿に失敗しました。'
-
-
-  
+    edit:
+      title: '装備編集'
+    update:
+      success: '編集しました。'
+      fail: '編集に失敗しました。'

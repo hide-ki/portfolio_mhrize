@@ -1,10 +1,9 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: %i[show edit update]
 
   def index; end
 
-  def show
-    @post = Post.find(params[:id])
-  end
+  def show; end
 
   def new
     @post = Post.new
@@ -22,8 +21,25 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @post.update(post_params)
+      flash[:success] = t '.success'
+      redirect_to post_path(@post)
+    else
+      flash.now[:fail] = t '.fail'
+      render :edit
+    end
+  end
+
 
   private
+
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
   def post_params
     params.require(:post).permit(:character_gender)
