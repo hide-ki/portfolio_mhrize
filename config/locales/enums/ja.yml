@@ -1,0 +1,6 @@
+ja:
+  enums:
+    post:
+      character_gender:
+        gentlemen: '男'
+        lady: '女'

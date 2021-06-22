@@ -6,6 +6,7 @@ ja:
     sign_up: '新規登録'
     mypage: 'マイページ'
     update: '更新'
+    post: '投稿'
   users:
     new:
       title: 'ユーザー新規登録'
@@ -30,5 +31,14 @@ ja:
       fail: 'ログインに失敗しました。'
     destroy:
       success: 'ログアウトしました。'
+  posts:
+    index:
+      title: '投稿一覧'
+    new:
+      title: '投稿'
+    create:
+      success: '投稿が作成されました。'
+      fail: '投稿に失敗しました。'
+
 
   

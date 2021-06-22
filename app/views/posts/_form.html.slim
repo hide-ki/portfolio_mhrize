@@ -1,0 +1,8 @@
+= form_with model: post, local: true do |f|
+
+  .field
+    = f.label :character_gender
+    = f.select :character_gender, Post.character_genders_i18n.keys.map{|k| [I18n.t("enums.post.character_gender.#{k}"), k]}
+
+  .actions
+    = f.submit t 'defaults.post'

@@ -68,3 +68,4 @@ gem 'rails-i18n'
 # デバッグ用(binding.pry)
 gem 'pry-rails'
 gem 'pry-byebug'
+gem 'enum_help'

@@ -1,3 +1,7 @@
 = link_to (t 'defaults.mypage'), user_path(current_user)
 
 = link_to (t 'defaults.logout'), logout_path, method: :delete
+
+= link_to (t 'defaults.post'), new_post_path
+
+= link_to '投稿一覧', posts_path
