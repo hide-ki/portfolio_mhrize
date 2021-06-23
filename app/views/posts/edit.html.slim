@@ -5,9 +5,18 @@ h1
 
 = form_with model: @post, local: true do |f|
 
+  = render 'shared/error_message', object: f.object
+
   .field
     = f.label :character_gender
     = f.select :character_gender, Post.character_genders_i18n.keys.map{ |k| [I18n.t("enums.post.character_gender.#{k}"), k] }
+
+  .field
+    = f.label :image
+    = f.file_field :image, accept: 'image/*'
+    = f.hidden_field :image_cache
+
+    = image_tag @post.image.url, size: '300x200' if @post.image?
 
   .actions
     = f.submit t 'defaults.edit'

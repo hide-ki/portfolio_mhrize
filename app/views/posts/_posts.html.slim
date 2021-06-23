@@ -2,3 +2,5 @@
   ul
     = link_to post.character_gender_i18n, post_path(post)
     = link_to post.user.name, user_path(post.user)
+    - if post.image?
+      = image_tag post.image_url, size: '300x200'
