@@ -11,15 +11,16 @@ ul
   - if @post.image?
     = image_tag @post.image_url, size: '300x200'
 
-  = @post.head_armor.name
+  / メソッドにして肥大化を防止したい
+  = @post.head_armor_name
 
-  = @post.body_armor.name
+  = @post.body_armor_name
 
-  = @post.arm_armor.name
+  = @post.arm_armor_name
 
-  = @post.waist_armor.name
+  = @post.waist_armor_name
 
-  = @post.foot_armor.name
+  = @post.foot_armor_name
 
 - if current_user.own?(@post)
   = link_to (t 'defaults.edit'), edit_post_path(@post)
