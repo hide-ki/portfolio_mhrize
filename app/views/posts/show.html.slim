@@ -11,6 +11,16 @@ ul
   - if @post.image?
     = image_tag @post.image_url, size: '300x200'
 
+  = @post.head_armor.name
+
+  = @post.body_armor.name
+
+  = @post.arm_armor.name
+
+  = @post.waist_armor.name
+
+  = @post.foot_armor.name
+
 - if current_user.own?(@post)
   = link_to (t 'defaults.edit'), edit_post_path(@post)
   = link_to (t 'defaults.destroy'), post_path(@post), method: :delete, data: { confirm: (t '.dialog') }

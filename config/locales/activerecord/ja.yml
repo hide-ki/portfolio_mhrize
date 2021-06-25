@@ -13,4 +13,10 @@ ja:
       post:
         id: ID
         character_gender: キャラの性別
-        image: '重ね着画像'
+        image: 重ね着画像
+        head_armor_id: 頭
+        body_armor_id: 胴
+        arm_armor_id: 腕
+        waist_armor_id: 腰
+        foot_armor_id: 脚
+      

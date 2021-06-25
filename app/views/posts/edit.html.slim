@@ -18,5 +18,20 @@ h1
 
     = image_tag @post.image.url, size: '300x200' if @post.image?
 
+    = f.label :head_armor_id
+    = f.select :head_armor_id, HeadArmor.pluck(:name, :id)
+
+    = f.label :body_armor_id
+    = f.select :body_armor_id, BodyArmor.pluck(:name, :id)
+
+    = f.label :arm_armor_id
+    = f.select :arm_armor_id, ArmArmor.pluck(:name, :id)
+
+    = f.label :waist_armor_id
+    = f.select :waist_armor_id, WaistArmor.pluck(:name, :id)
+
+    = f.label :foot_armor_id
+    = f.select :foot_armor_id, FootArmor.pluck(:name, :id)
+
   .actions
     = f.submit t 'defaults.edit'

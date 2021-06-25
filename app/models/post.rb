@@ -2,6 +2,11 @@ class Post < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   belongs_to :user
+  belongs_to :head_armor, optional: true
+  belongs_to :body_armor, optional: true
+  belongs_to :arm_armor, optional: true
+  belongs_to :waist_armor, optional: true
+  belongs_to :foot_armor, optional: true
 
   validates :character_gender, presence: true
   # imageカラムのバリデーションをカスタムする

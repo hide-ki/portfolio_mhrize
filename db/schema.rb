@@ -10,15 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_23_034654) do
+ActiveRecord::Schema.define(version: 2021_06_24_234557) do
+
+  create_table "armors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "type"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "head_armor_id"
+    t.bigint "body_armor_id"
+    t.bigint "arm_armor_id"
+    t.bigint "waist_armor_id"
+    t.bigint "foot_armor_id"
     t.integer "character_gender", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
+    t.index ["arm_armor_id"], name: "index_posts_on_arm_armor_id"
+    t.index ["body_armor_id"], name: "index_posts_on_body_armor_id"
+    t.index ["foot_armor_id"], name: "index_posts_on_foot_armor_id"
+    t.index ["head_armor_id"], name: "index_posts_on_head_armor_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["waist_armor_id"], name: "index_posts_on_waist_armor_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|

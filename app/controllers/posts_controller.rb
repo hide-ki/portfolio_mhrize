@@ -48,7 +48,8 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:character_gender, :image, :image_cache)
+    params.require(:post).permit(:character_gender, :image, :image_cache, :head_armor_id,
+              :body_armor_id, :arm_armor_id, :waist_armor_id, :foot_armor_id)
   end
 
   def correct_user
