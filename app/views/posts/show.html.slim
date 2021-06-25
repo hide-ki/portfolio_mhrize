@@ -11,17 +11,14 @@ ul
   - if @post.image?
     = image_tag @post.image_url, size: '300x200'
 
-  / メソッドにして肥大化を防止したい
-  = @post.head_armor_name
-
-  = @post.body_armor_name
-
-  = @post.arm_armor_name
-
-  = @post.waist_armor_name
-
-  = @post.foot_armor_name
-
+  - @post.armors.each do |armor|
+    - if armor.nil?
+      = 'なし'
+    - else
+      = armor.name
+  
 - if current_user.own?(@post)
   = link_to (t 'defaults.edit'), edit_post_path(@post)
   = link_to (t 'defaults.destroy'), post_path(@post), method: :delete, data: { confirm: (t '.dialog') }
+
+  

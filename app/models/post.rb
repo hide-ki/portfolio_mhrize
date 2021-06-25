@@ -16,44 +16,15 @@ class Post < ApplicationRecord
   enum character_gender: { gentlemen: 0, lady: 1 }
 
 
-  # 一括してメソッドを作りたい(modelの肥大化を防止)
-  def head_armor_name
-    if self.head_armor.nil?
+  def armor_name(object)
+    if object.nil?
       'なし'
     else
-      head_armor.name
+      object.name
     end
   end
 
-  def body_armor_name
-    if self.body_armor.nil?
-      'なし'
-    else
-      body_armor.name
-    end
-  end
-
-  def arm_armor_name
-    if self.arm_armor.nil?
-      'なし'
-    else
-      arm_armor.name
-    end
-  end
-
-  def waist_armor_name
-    if waist_armor.nil?
-      'なし'
-    else
-      waist_armor.name
-    end
-  end
-
-  def foot_armor_name
-    if foot_armor.nil?
-      'なし'
-    else
-      foot_armor.name
-    end
+  def armors
+    [head_armor, body_armor, arm_armor, waist_armor, foot_armor]
   end
 end
