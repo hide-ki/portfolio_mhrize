@@ -3,4 +3,4 @@
     = post.character_gender_i18n
     = post.user.name
     - if post.image?
-      = image_tag post.image_url, size: '300x200'
+      = link_to image_tag(post.image_url, size: '300x200'), post_path(post)

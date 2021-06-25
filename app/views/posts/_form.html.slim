@@ -20,19 +20,19 @@
       = image_tag 'goodstockphotos_eyecatch-480x302.jpeg', size: '100x100'
     
     = f.label :head_armor_id
-    = f.select :head_armor_id, HeadArmor.pluck(:name, :id)
+    = f.select :head_armor_id, HeadArmor.pluck(:name, :id), { prompt: '----' }
 
     = f.label :body_armor_id
-    = f.select :body_armor_id, BodyArmor.pluck(:name, :id)
+    = f.select :body_armor_id, BodyArmor.pluck(:name, :id), { prompt: '----' }
 
     = f.label :arm_armor_id
-    = f.select :arm_armor_id, ArmArmor.pluck(:name, :id)
+    = f.select :arm_armor_id, ArmArmor.pluck(:name, :id), { prompt: '----' }
 
     = f.label :waist_armor_id
-    = f.select :waist_armor_id, WaistArmor.pluck(:name, :id)
+    = f.select :waist_armor_id, WaistArmor.pluck(:name, :id), { prompt: '----' }
 
     = f.label :foot_armor_id
-    = f.select :foot_armor_id, FootArmor.pluck(:name, :id)
+    = f.select :foot_armor_id, FootArmor.pluck(:name, :id), { prompt: '----' }
 
 
   .actions
