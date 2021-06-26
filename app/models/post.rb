@@ -24,6 +24,7 @@ class Post < ApplicationRecord
     end
   end
 
+  # もう少し編集したい
   def armors
     [head_armor, body_armor, arm_armor, waist_armor, foot_armor]
   end
