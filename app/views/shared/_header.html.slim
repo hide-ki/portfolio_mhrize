@@ -1,6 +1,8 @@
 = link_to (t 'defaults.top'), root_path
 
-= link_to (t 'defaults.mypage'), user_path(current_user)
+= link_to (t 'defaults.user_show'), user_path(current_user)
+
+= link_to (t 'defaults.mypage'), '#'
 
 = link_to (t 'defaults.logout'), logout_path, method: :delete
 
