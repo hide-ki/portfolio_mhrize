@@ -62,7 +62,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'slim-rails'
 # erbをslimに変換するgem
 gem 'html2slim'
-
+# ログイン機能
 gem 'sorcery'
 gem 'rails-i18n'
 # デバッグ用(binding.pry)
@@ -70,3 +70,7 @@ gem 'pry-rails'
 gem 'pry-byebug'
 gem 'enum_help'
 gem 'carrierwave'
+# 検索機能
+gem 'ransack'
+# ページネーション
+gem 'kaminari'

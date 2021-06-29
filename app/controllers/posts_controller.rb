@@ -13,24 +13,14 @@ class PostsController < ApplicationController
   end
 
   def create
-    
     @post = current_user.posts.build(post_params)
 
+    # フォームで一括登録するため、tracsactionを使わないと、colorsのpost_idに値を入れれなかった
     Post.transaction do
-      @post.save
-      FirstColor.transaction do
-        @post.first_colors.first.update(part: 'head')
-        @post.first_colors.second.update(part: 'body')
-        @post.first_colors.third.update(part: 'arm')
-        @post.first_colors.fourth.update(part: 'waist')
-        @post.first_colors.fifth.update(part: 'foot')
-        @post.second_colors.first.update(part: 'head')
-        @post.second_colors.second.update(part: 'body')
-        @post.second_colors.third.update(part: 'arm')
-        @post.second_colors.fourth.update(part: 'waist')
-        @post.second_colors.fifth.update(part: 'foot')
-      end
+      @post.save!
     end
+    @post.first_color_change_part
+    @post.second_color_change_part
     flash[:success] = t '.success'
     redirect_to root_path
     rescue => e
