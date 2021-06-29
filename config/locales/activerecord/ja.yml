@@ -33,3 +33,11 @@ ja:
         hue: 色相
         saturation: 彩度
         value: 明度
+      post/first_colors:
+        hue: 色相
+        saturation: 彩度
+        value: 明度
+      post/second_colors:
+        hue: 色相
+        saturation: 彩度
+        value: 明度
