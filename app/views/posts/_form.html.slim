@@ -48,6 +48,16 @@
       = ff.label :value
       = ff.number_field :value, { max: 300 }
 
+  = f.fields_for :second_colors do |fff|
+
+      = fff.label :hue
+      = fff.number_field :hue, { max: 300 }
+
+      = fff.label :saturation
+      = fff.number_field :saturation, { max: 300 }
+
+      = fff.label :value
+      = fff.number_field :value, { max: 300 }
 
   .actions
     = f.submit button_name

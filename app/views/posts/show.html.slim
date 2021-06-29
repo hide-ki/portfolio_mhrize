@@ -22,6 +22,11 @@ ul
     = color.saturation
     = color.value
   
+  - @post.second_colors.each do |color|
+    = color.hue
+    = color.saturation
+    = color.value
+  
 - if current_user.own?(@post)
   = link_to (t 'defaults.edit'), edit_post_path(@post)
   = link_to (t 'defaults.destroy'), post_path(@post), method: :delete, data: { confirm: (t '.dialog') }

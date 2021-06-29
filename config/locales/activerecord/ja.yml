@@ -4,6 +4,7 @@ ja:
       user: ユーザー
       post: 投稿
       first_color: 着彩1
+      second_color: 着彩2
     attributes:
       user:
         id: ID
@@ -21,6 +22,12 @@ ja:
         waist_armor_id: 腰
         foot_armor_id: 脚
       first_color:
+        id: ID
+        part: 部位
+        hue: 色相
+        saturation: 彩度
+        value: 明度
+      second_color:
         id: ID
         part: 部位
         hue: 色相
