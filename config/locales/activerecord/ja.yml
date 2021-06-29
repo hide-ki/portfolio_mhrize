@@ -3,6 +3,7 @@ ja:
     models:
       user: ユーザー
       post: 投稿
+      first_color: 着彩1
     attributes:
       user:
         id: ID
@@ -19,4 +20,9 @@ ja:
         arm_armor_id: 腕
         waist_armor_id: 腰
         foot_armor_id: 脚
-      
+      first_color:
+        id: ID
+        part: 部位
+        hue: 色相
+        saturation: 彩度
+        value: 明度

@@ -10,13 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_24_234557) do
+ActiveRecord::Schema.define(version: 2021_06_26_025756) do
 
   create_table "armors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "type"
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "first_colors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "part"
+    t.integer "hue", default: 0, null: false
+    t.integer "saturation", default: 0, null: false
+    t.integer "value", default: 0, null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_first_colors_on_post_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -38,6 +49,17 @@ ActiveRecord::Schema.define(version: 2021_06_24_234557) do
     t.index ["waist_armor_id"], name: "index_posts_on_waist_armor_id"
   end
 
+  create_table "second_colors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.integer "part"
+    t.integer "hue", default: 0, null: false
+    t.integer "saturation", default: 0, null: false
+    t.integer "value", default: 0, null: false
+    t.bigint "post_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_second_colors_on_post_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "email", null: false
     t.string "name", null: false
@@ -48,5 +70,7 @@ ActiveRecord::Schema.define(version: 2021_06_24_234557) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "first_colors", "posts"
   add_foreign_key "posts", "users"
+  add_foreign_key "second_colors", "posts"
 end

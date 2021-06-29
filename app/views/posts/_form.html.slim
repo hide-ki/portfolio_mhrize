@@ -34,6 +34,20 @@
     = f.label :foot_armor_id
     = f.select :foot_armor_id, FootArmor.pluck(:name, :id), { prompt: '----' }
 
+  = f.fields_for :first_colors do |ff|
+      / = ff.label :着彩1
+      / 繰り返し処理などのメソッドで、順番にpartにhead,body...と入れたい
+      / = ff.hidden_field :part
+
+      = ff.label :hue
+      = ff.number_field :hue, { max: 300 }
+
+      = ff.label :saturation
+      = ff.number_field :saturation, { max: 300 }
+
+      = ff.label :value
+      = ff.number_field :value, { max: 300 }
+
 
   .actions
-    = f.submit t 'defaults.post'
+    = f.submit button_name
