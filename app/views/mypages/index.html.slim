@@ -1,0 +1,13 @@
+- provide :title, (t '.title')
+
+h1
+  = t '.title'
+h2
+  = '投稿一覧'
+
+= render 'shared/search_form', q: @q, url: user_mypages_path(current_user)
+
+
+= render 'posts/posts', posts: @posts
+
+= paginate(@posts)

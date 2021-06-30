@@ -34,9 +34,27 @@ RSpec.describe "Users", type: :system do
   end
 
   describe 'User編集' do
+    let(:user) { create(:user) }
     context '正常系' do
-      xit '入力が正常な場合、userを編集できること' do
-        
+      it '入力が正常な場合、userを編集できること' do
+        login_as(user)
+        visit edit_user_path(user)
+        fill_in 'ユーザー名', with: 'test'
+        click_button '更新'
+        expect(page).to have_content 'ユーザー情報を更新しました。'
+        expect(page).to have_content 'test'
+        expect(current_path).to eq user_path(user)
+      end
+    end
+
+    context '異常系' do
+      it '入力内容が正しくない場合、userを編集できないこと' do
+        login_as(user)
+        visit edit_user_path(user)
+        fill_in 'ユーザー名', with: ''
+        click_button '更新'
+        expect(page).to have_content 'ユーザー情報の更新に失敗しました。'
+        expect(page).to have_content 'ユーザー名を入力してください'
       end
     end
   end

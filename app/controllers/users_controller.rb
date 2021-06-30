@@ -12,6 +12,8 @@ class UsersController < ApplicationController
       flash[:success] = t '.success'
       redirect_to login_path
     else
+      # 新規登録に失敗すると、urlが/usersになってしまう
+      # redirect_toを使用するなら、flashにエラーメッセージを入れる？
       flash.now[:danger] = t '.fail'
       render :new
     end

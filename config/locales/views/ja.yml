@@ -51,3 +51,6 @@ ja:
       fail: '編集に失敗しました。'
     destroy:
       success: '投稿を削除しました。'
+  mypages:
+    index:
+      title: 'マイページ'
