@@ -7,6 +7,10 @@
   .field
     = f.label :password, User.human_attribute_name(:password)
     = f.password_field :password
+  
+  .field
+    = label_tag :remember, 'ログイン維持'
+    = check_box_tag :remember, params[:remember], true
 
   .actions
     = f.submit t 'defaults.login'

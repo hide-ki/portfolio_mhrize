@@ -19,9 +19,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
-  # 後々、showアクションに自分の投稿を一覧で表示させる
-  end
+  def show; end
 
   def edit; end
 
