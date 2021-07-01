@@ -34,6 +34,8 @@
     = f.label :foot_armor_id
     = f.select :foot_armor_id, FootArmor.pluck(:name, :id), { prompt: '----' }
 
+  = label_tag :first_color, '着彩1'
+
   = f.fields_for :first_colors do |ff|
       / = ff.label :着彩1
       / 繰り返し処理などのメソッドで、順番にpartにhead,body...と入れたい
@@ -47,6 +49,8 @@
 
       = ff.label :value
       = ff.number_field :value, { max: 300 }
+
+  = label_tag :second_color, '着彩2'
 
   = f.fields_for :second_colors do |fff|
 
