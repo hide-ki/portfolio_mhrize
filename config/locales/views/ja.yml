@@ -54,3 +54,8 @@ ja:
   mypages:
     index:
       title: 'マイページ'
+  password_resets:
+    new:
+      title: 'パスワードリセット申請'
+    edit:
+      title: 'パスワードリセットフォーム'
