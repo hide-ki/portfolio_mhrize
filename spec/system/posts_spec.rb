@@ -10,7 +10,7 @@ RSpec.describe "Posts", type: :system do
       it '入力内容が正常なら、postが作成できること' do
         login_as(user)
         click_link '投稿'
-        attach_file '重ね着画像', "#{Rails.root}/spec/factories/peach-1.jpg"
+        attach_file '重ね着画像', "#{Rails.root}/spec/fixtures/peach-1.jpg"
         click_button '投稿'
         expect(page).to have_content '投稿が作成されました。'
         expect(current_path).to eq root_path

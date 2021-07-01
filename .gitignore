@@ -39,3 +39,6 @@ yarn-debug.log*
 
 # 保存した画像をgithubにアップロードしないようにする
 /public/uploads
+
+# テスト用の画像を保存している
+spec/fixtures

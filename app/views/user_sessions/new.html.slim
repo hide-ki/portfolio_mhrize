@@ -4,3 +4,5 @@ h1
   = t '.title'
 
 = render 'form', user: @user, url: login_path
+
+= link_to 'パスワードを忘れた方はこちら', new_password_reset_path
