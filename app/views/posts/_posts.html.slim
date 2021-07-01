@@ -1,6 +1,6 @@
 - posts.each do |post|
   ul
     = post.character_gender_i18n
-    = post.user.name
+    = post.title
     - if post.image?
       = link_to image_tag(post.image_url, size: '300x200'), post_path(post), class: 'post_image'

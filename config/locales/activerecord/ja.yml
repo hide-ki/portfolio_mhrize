@@ -15,6 +15,7 @@ ja:
       post:
         id: ID
         character_gender: キャラの性別
+        title: タイトル
         image: 重ね着画像
         head_armor_id: 頭
         body_armor_id: 胴

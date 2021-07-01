@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_01_024007) do
+ActiveRecord::Schema.define(version: 2021_07_01_043237) do
 
   create_table "armors", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.string "type"
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 2021_07_01_024007) do
     t.index ["post_id"], name: "index_first_colors_on_post_id"
   end
 
+  create_table "post_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.bigint "post_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_post_tags_on_post_id"
+    t.index ["tag_id"], name: "index_post_tags_on_tag_id"
+  end
+
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
     t.bigint "head_armor_id"
     t.bigint "body_armor_id"
@@ -41,6 +50,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_024007) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "image"
+    t.string "title"
     t.index ["arm_armor_id"], name: "index_posts_on_arm_armor_id"
     t.index ["body_armor_id"], name: "index_posts_on_body_armor_id"
     t.index ["foot_armor_id"], name: "index_posts_on_foot_armor_id"
@@ -58,6 +68,12 @@ ActiveRecord::Schema.define(version: 2021_07_01_024007) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["post_id"], name: "index_second_colors_on_post_id"
+  end
+
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4", force: :cascade do |t|
@@ -79,6 +95,8 @@ ActiveRecord::Schema.define(version: 2021_07_01_024007) do
   end
 
   add_foreign_key "first_colors", "posts"
+  add_foreign_key "post_tags", "posts"
+  add_foreign_key "post_tags", "tags"
   add_foreign_key "posts", "users"
   add_foreign_key "second_colors", "posts"
 end

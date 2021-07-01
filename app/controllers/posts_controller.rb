@@ -56,7 +56,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:character_gender, :image, :image_cache, :head_armor_id,
+    params.require(:post).permit(:title, :character_gender, :image, :image_cache, :head_armor_id,
               :body_armor_id, :arm_armor_id, :waist_armor_id, :foot_armor_id,
               first_colors_attributes: [:part, :hue, :saturation, :value, :post_id],
               second_colors_attributes: [:part, :hue, :saturation, :value, :post_id]
@@ -65,7 +65,7 @@ class PostsController < ApplicationController
 
   # colorsテーブルのidを追加 idの追加で、更新の度に入力欄が増加する現象を防止
   def update_post_params
-    params.require(:post).permit(:character_gender, :image, :image_cache, :head_armor_id,
+    params.require(:post).permit(:title, :character_gender, :image, :image_cache, :head_armor_id,
       :body_armor_id, :arm_armor_id, :waist_armor_id, :foot_armor_id,
       first_colors_attributes: [:id, :part, :hue, :saturation, :value, :post_id],
       second_colors_attributes: [:id, :part, :hue, :saturation, :value, :post_id]
