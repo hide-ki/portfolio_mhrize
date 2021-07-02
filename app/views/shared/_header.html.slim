@@ -1,9 +1,33 @@
-= link_to (t 'defaults.top'), root_path
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  .navbar-brand
+    = link_to (t 'defaults.top'), root_path
 
-= link_to (t 'defaults.user_show'), user_path(current_user)
+    = link_to (t 'defaults.post'), new_post_path
 
-= link_to (t 'defaults.mypage'), user_mypages_path(current_user)
+  button.navbar-toggler type="button" data-bs-toggle="collapse" data-bs-target="#navbarmenu" aria-controls="navbarmenu" aria-expanded="false" aria-label="Toggle navigation"
+    span.navbar-toggler-icon
 
-= link_to (t 'defaults.logout'), logout_path, method: :delete
+  #navbarmenu.collapse.navbar-collapse
+    ul.navbar-nav.me-auto.mb-2.mb-lg-0
+      li.nav-item
+        b.nav-link href="#"
+          = link_to (t 'defaults.user_show'), user_path(current_user)
+      li.nav-item
+        b.nav-link href="#"
+          = link_to (t 'defaults.mypage'), user_mypages_path(current_user)
+      li.nav-item
+        b.nav-link href="#"
+          = link_to (t 'defaults.logout'), logout_path, method: :delete
 
-= link_to (t 'defaults.post'), new_post_path
+  / .dropdown
+  /   button.btn.btn-secondary.dropdown-toggle type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
+  /     = "Menu"
+  /   ul.dropdown-menu.dropdown-menu aria-labelled="dropdownMenuButton"
+  /     li.dropdown-item href="#"
+  /       = link_to (t 'defaults.user_show'), user_path(current_user)
+  /     li.dropdown-item href="#"
+  /       = link_to (t 'defaults.mypage'), user_mypages_path(current_user)
+  /     li.dropdown-item href="#"
+  /       = link_to (t 'defaults.logout'), logout_path, method: :delete
+
+

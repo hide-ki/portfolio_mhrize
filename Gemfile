@@ -75,3 +75,7 @@ gem 'carrierwave'
 gem 'ransack'
 # ページネーション
 gem 'kaminari'
+# bootstrap導入
+gem 'uglifier'
+gem 'jquery-rails'
+gem 'bootstrap'
