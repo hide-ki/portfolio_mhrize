@@ -8,8 +8,7 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by(email: params[:email])
     @user&.deliver_reset_password_instructions!
 
-    flash[:success] = 'メールが送信されました。'
-    redirect_to login_path
+    redirect_to login_path, success: 'メールが送信されました。'
   end
 
   def edit
@@ -28,8 +27,7 @@ class PasswordResetsController < ApplicationController
     return not_authenticated if @user.blank?
     @user.password_confirmation = params[:user][:password_confirmation]
     if @user.change_password(params[:user][:password])
-      flash[:success] = 'パスワードを更新しました。'
-      redirect_to login_path
+      redirect_to login_path, success: 'パスワードを更新しました。'
     else
       flash.now[:danger] = 'パスワードの更新に失敗しました。'
       render :edit

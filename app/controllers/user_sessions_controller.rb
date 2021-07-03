@@ -7,8 +7,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password], params[:remember])
 
     if @user
-      flash[:success] = t '.success'
-      redirect_to root_path
+      redirect_to root_path, success: (t '.success')
     else
       flash.now[:danger] = t '.fail'
       render :new
@@ -19,7 +18,6 @@ class UserSessionsController < ApplicationController
     remember_me!
     forget_me!
     logout
-    flash[:success] = t '.success'
-    redirect_to login_path
+    redirect_to login_path, success: (t '.success')
   end
 end

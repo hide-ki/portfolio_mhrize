@@ -1,6 +1,6 @@
 = render 'shared/search_form', q: @q, url: root_path
 
 h2 重ね着一覧
-= render 'posts/posts', posts: @posts
+= render 'posts/post', posts: @posts
 
 = paginate(@posts)

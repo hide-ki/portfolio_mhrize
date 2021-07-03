@@ -15,7 +15,7 @@ RSpec.describe "Posts", type: :system do
         expect(page).to have_content '投稿が作成されました。'
         expect(current_path).to eq root_path
         # 画像にalt属性またはidをつけたら画像が表示されていることを確認する
-        expect(page).to have_content user.name
+        expect(page).to have_selector("img[src$='peach-1.jpg']")
       end
     end
     context '異常系' do

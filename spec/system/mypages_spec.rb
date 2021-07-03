@@ -10,13 +10,12 @@ RSpec.describe "Mypages", type: :system do
         login_as(user)
         post
         other_post
-        click_link 'マイページ'
+        visit user_mypages_path(user)
         expect(page).to have_selector("img[src$='goodstockphotos_eyecatch-480x302.jpeg']")
         expect(page).to have_selector("img[src$='peach-1.jpg']")
         expect(current_path).to eq user_mypages_path(user)
       end
       xit '投稿がなければ表示されないこと' do
-        
       end
     end
   end

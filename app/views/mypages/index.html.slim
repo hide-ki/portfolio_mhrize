@@ -8,6 +8,6 @@ h4
 = render 'shared/search_form', q: @q, url: user_mypages_path(current_user)
 
 
-= render 'posts/posts', posts: @posts
+= render 'posts/post', posts: @posts
 
 = paginate(@posts)

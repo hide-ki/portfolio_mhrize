@@ -1,0 +1,8 @@
+    - posts.each do |post|
+          .card style="width: 20rem;"
+            .card-img-top
+              - if post.image?
+                = link_to image_tag(post.image_url, size: '300x200'), post_path(post), class: 'post_image'
+            .card-body
+              .card-title
+                = link_to "#{post.title}", post_path(post)

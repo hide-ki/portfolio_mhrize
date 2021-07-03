@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
+  before_action :correct_user, only: %i[show edit update destroy]
   skip_before_action :require_login, only: %i[new create]
 
   def new
@@ -9,8 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = t '.success'
-      redirect_to login_path
+      redirect_to login_path, success: (t '.success')
     else
       # 新規登録に失敗すると、urlが/usersになってしまう
       # redirect_toを使用するなら、flashにエラーメッセージを入れる？
@@ -25,8 +25,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = t '.success'
-      redirect_to user_path(@user)
+      redirect_to user_path(@user), success: (t '.success')
     else
       flash.now[:fail] = t '.fail'
       render :edit
@@ -35,8 +34,7 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy!
-    flash[:success] = t '.success'
-    redirect_to new_user_path
+    redirect_to new_user_path, success: (t '.success')
   end
 
   private
@@ -47,5 +45,10 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def correct_user
+    user = User.find(params[:id])
+    redirect_to root_path unless current_user == user
   end
 end

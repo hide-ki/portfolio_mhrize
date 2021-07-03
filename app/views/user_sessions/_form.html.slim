@@ -1,12 +1,12 @@
 = form_with model: user, url: url, local: true do |f|
   
   .field
-    = f.label :email, User.human_attribute_name(:email)
-    = f.email_field :email
+    = f.label :email, User.human_attribute_name(:email), class: 'col-md-10'
+    = f.email_field :email, class: 'col-md-3'
 
   .field
-    = f.label :password, User.human_attribute_name(:password)
-    = f.password_field :password
+    = f.label :password, User.human_attribute_name(:password), class: 'col-md-10'
+    = f.password_field :password, class: 'col-md-3'
   
   .field
     = label_tag :remember, 'ログイン維持'

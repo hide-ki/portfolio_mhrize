@@ -23,8 +23,7 @@ class PostsController < ApplicationController
     end
     # @post.first_color_change_part
     # @post.second_color_change_part
-    flash[:success] = t '.success'
-    redirect_to root_path
+    redirect_to root_path, success: (t '.success')
     rescue => e
     flash.now[:danger] = t '.fail'
     render :new
@@ -34,8 +33,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(update_post_params)
-      flash[:success] = t '.success'
-      redirect_to post_path(@post)
+      redirect_to post_path(@post), success: (t '.success')
     else
       flash.now[:fail] = t '.fail'
       render :edit
@@ -44,8 +42,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy!
-    flash[:success] = t '.success'
-    redirect_to root_path
+    redirect_to root_path, success: (t '.success')
   end
 
 

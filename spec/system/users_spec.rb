@@ -5,7 +5,7 @@ RSpec.describe "Users", type: :system do
     context '正常系' do
       it '正常に入力した場合、Userが作成されること' do
         visit root_path
-        click_link '新規登録'
+        visit new_user_path
         fill_in 'ユーザー名', with: 'foofoo'
         fill_in 'メールアドレス', with: 'foofoo@foo.com'
         fill_in 'パスワード', with: 'password'
@@ -20,7 +20,6 @@ RSpec.describe "Users", type: :system do
     context '異常系' do
       it '入力内容が正しくない場合、Userが作成されないこと' do
         visit new_user_path
-        click_link '新規登録'
         fill_in 'ユーザー名', with: 'foo'
         fill_in 'メールアドレス', with: 'foo@foo.com'
         fill_in 'パスワード', with: ''
