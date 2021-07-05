@@ -1,14 +1,23 @@
 - provide :title, (t '.title')
 
-h3
-  = t '.title'
-h4
-  = '投稿一覧'
+.container.pt-3
+  .row
+    .col-lg-10.offset-lg-1
+      = render 'shared/search_form', q: @q, url: user_mypages_path(current_user)
 
-= render 'shared/search_form', q: @q, url: user_mypages_path(current_user)
+  h3
+    = t '.title'
+  h4
+    = '投稿一覧'
+  
+  = sort_link(@q, :created_at, '作成順', default_order: :desc)
 
-= sort_link(@q, :created_at, '作成順', default_order: :desc)
+  .row
+    .col-12
+      .row
 
-= render 'posts/post', posts: @posts
 
-= paginate(@posts)
+        / = render 'posts/post', posts: @posts
+        = render @posts
+
+        = paginate(@posts)

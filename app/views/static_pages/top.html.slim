@@ -1,7 +1,15 @@
-= render 'shared/search_form', q: @q, url: root_path
+.container.pt-3
+  .row
+    .col-lg-10.offset-lg-1
+      = render 'shared/search_form', q: @q, url: root_path
 
-h2 重ね着一覧
-= sort_link(@q, :created_at, '作成順', default_order: :desc)
-= render 'posts/post', posts: @posts
+  h2 重ね着一覧
+  = sort_link(@q, :created_at, '作成順', default_order: :desc)
 
-= paginate(@posts)
+  .row
+    .col-12
+      .row
+        / = render 'posts/post', posts: @posts
+        = render @posts
+
+        = paginate(@posts)
