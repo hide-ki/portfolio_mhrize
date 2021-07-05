@@ -1,6 +1,7 @@
 = render 'shared/search_form', q: @q, url: root_path
 
 h2 重ね着一覧
+= sort_link(@q, :created_at, '作成順', default_order: :desc)
 = render 'posts/post', posts: @posts
 
 = paginate(@posts)

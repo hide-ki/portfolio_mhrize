@@ -7,6 +7,7 @@ h4
 
 = render 'shared/search_form', q: @q, url: user_mypages_path(current_user)
 
+= sort_link(@q, :created_at, '作成順', default_order: :desc)
 
 = render 'posts/post', posts: @posts
 

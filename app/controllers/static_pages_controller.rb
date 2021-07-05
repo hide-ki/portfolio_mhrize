@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
 
   def top
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).page(params[:page])
+    @posts = @q.result(distinct: true).page(params[:page]).order(created_at: :desc)
   end
 
   private

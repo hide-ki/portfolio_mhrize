@@ -3,7 +3,7 @@ class MypagesController < ApplicationController
 
   def index
     @q = current_user.posts.ransack(params[:q])
-    @posts = @q.result(distinct: true).page(params[:page])
+    @posts = @q.result(distinct: true).page(params[:page]).order(created_at: :desc)
   end
 
   private
