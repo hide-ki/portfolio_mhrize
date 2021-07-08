@@ -1,0 +1,9 @@
+= form_with model: armor, url: url, local: true do |f|
+
+  = f.label :type
+  = f.select :type, { 頭: 'HeadArmor', 胴: 'BodyArmor', 腕: 'ArmArmor', 腰: 'WaistArmor', 脚: 'FootArmor' }
+
+  = f.label :name
+  = f.text_field :name
+
+  = f.submit

@@ -1,0 +1,19 @@
+- provide :title, (t '.title')
+
+h3
+  = t '.title'
+
+- if @head_armors.present?
+  = render @head_armors
+
+- if @body_armors.present?
+  = render @body_armors
+
+- if @arm_armors.present?
+  = render @arm_armors
+
+- if @waist_armors.present?
+  = render @waist_armors
+
+- if @foot_armors.present?
+  = render @foot_armors

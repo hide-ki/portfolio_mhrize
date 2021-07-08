@@ -18,15 +18,18 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     # フォームで一括登録するため、tracsactionを使わないと、colorsのpost_idに値を入れれなかった
-    Post.transaction do
-      @post.save!
-    end
+    # Post.transaction do
+    #   @post.save!
+    # end
     # @post.first_color_change_part
     # @post.second_color_change_part
-    redirect_to root_path, success: (t '.success')
-    rescue => e
-    flash.now[:danger] = t '.fail'
-    render :new
+    if @post.save
+      redirect_to root_path, success: (t '.success')
+    # rescue => e
+    else
+      flash.now[:danger] = t '.fail'
+      render :new
+    end
   end
 
   def edit; end
