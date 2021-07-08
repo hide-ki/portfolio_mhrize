@@ -10,4 +10,4 @@ br
 = link_to '編集', edit_user_path(current_user)
 br
 
-= link_to '削除', user_path(current_user), method: :delete, data: { confirm: (t '.dialog') }
+= link_to '削除', user_path(current_user), method: :delete, data: { confirm: (t '.dialog') } unless current_user.admin?

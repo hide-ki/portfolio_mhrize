@@ -9,8 +9,6 @@ ul
   = @post.character_gender_i18n
 
   = @post.user.name
-  - if current_user&.admin?
-    = link_to 'ユーザー削除', user_path(@post.user), method: :delete, data: { confirm: '削除してもよろしいですか？' }
 
   - if @post.image?
     = image_tag @post.image_url, size: '300x200'
@@ -31,7 +29,7 @@ ul
     = color.saturation
     = color.value
   
-- if current_user&.admin? || current_user&.own?(@post)
+- if current_user&.own?(@post)
   = link_to (t 'defaults.edit'), edit_post_path(@post)
   = link_to (t 'defaults.destroy'), post_path(@post), method: :delete, data: { confirm: (t '.dialog') }
 

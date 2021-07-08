@@ -1,5 +1,4 @@
-class ArmorsController < ApplicationController
-  before_action :check_admin
+class Admin::ArmorsController < Admin::BaseController
   before_action :set_armor, only: [:edit, :update, :destroy]
   
   def index
@@ -17,9 +16,9 @@ class ArmorsController < ApplicationController
   def create
     @armor = Armor.new(armor_params)
     if @armor.save
-      redirect_to new_armor_path, success: "#{@armor.attributes}"
+      redirect_to new_admin_armor_path, success: "#{@armor.attributes}"
     else
-      redirect_to new_armor_path, danger: '装備の作成に失敗しました。'
+      redirect_to new_admin_armor_path, danger: '装備の作成に失敗しました。'
     end
   end
 
@@ -39,7 +38,7 @@ class ArmorsController < ApplicationController
       @armor.assign_attributes(foot_armor_params)
     end
     if @armor.save
-      redirect_to armors_path, success: '装備を更新しました。'
+      redirect_to admin_armors_path, success: '装備を更新しました。'
     else
       flash.now[:danger] = '装備の更新に失敗しました。'
       render :edit
@@ -48,7 +47,7 @@ class ArmorsController < ApplicationController
 
   def destroy
     @armor.destroy!
-    redirect_to armors_path, success: '装備を削除しました。'
+    redirect_to admin_armors_path, success: '装備を削除しました。'
   end
 
 
@@ -80,9 +79,5 @@ class ArmorsController < ApplicationController
 
   def foot_armor_params
     params.require(:foot_armor).permit(:type, :name)
-  end
-
-  def check_admin
-    redirect_to root_path unless current_user.admin?
   end
 end

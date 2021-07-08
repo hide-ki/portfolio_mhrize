@@ -1,0 +1,2 @@
+module Admin::ArmorsHelper
+end

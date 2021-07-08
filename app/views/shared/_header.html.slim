@@ -1,40 +1,49 @@
-nav.navbar.navbar-expand-lg.navbar-light.bg-light
-  .navbar-brand
-    = link_to (t 'defaults.top'), root_path
+- if current_user.admin?
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    .navbar-brand
+      = link_to (t 'defaults.top'), admin_root_path
 
-    = link_to (t 'defaults.post'), new_post_path
+      = link_to (t 'defaults.post'), new_post_path
 
-  button.navbar-toggler type="button" data-bs-toggle="collapse" data-bs-target="#navbarmenu" aria-controls="navbarmenu" aria-expanded="false" aria-label="Toggle navigation"
-    span.navbar-toggler-icon
+    button.navbar-toggler type="button" data-bs-toggle="collapse" data-bs-target="#navbarmenu" aria-controls="navbarmenu" aria-expanded="false" aria-label="Toggle navigation"
+      span.navbar-toggler-icon
 
-  #navbarmenu.collapse.navbar-collapse
-    ul.navbar-nav.me-auto.mb-2.mb-lg-0
-      li.nav-item
-        b.nav-link href="#"
-          = link_to (t 'defaults.user_show'), user_path(current_user)
-      li.nav-item
-        b.nav-link href="#"
-          = link_to (t 'defaults.mypage'), user_mypages_path(current_user)
-      li.nav-item
-        b.nav-link href="#"
-          = link_to (t 'defaults.logout'), logout_path, method: :delete
-      - if current_user.admin?
+    #navbarmenu.collapse.navbar-collapse
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0
         li.nav-item
           b.nav-link href="#"
-            = link_to "装備作成", new_armor_path
+            = link_to (t 'defaults.user_show'), user_path(current_user)
         li.nav-item
           b.nav-link href="#"
-            = link_to "装備一覧", armors_path
+            = link_to (t 'defaults.mypage'), user_mypages_path(current_user)
+        li.nav-item
+          b.nav-link href="#"
+            = link_to (t 'defaults.logout'), logout_path, method: :delete
+        li.nav-item
+          b.nav-link href="#"
+            = link_to "装備作成", new_admin_armor_path
+        li.nav-item
+          b.nav-link href="#"
+            = link_to "装備一覧", admin_armors_path
 
-  / .dropdown
-  /   button.btn.btn-secondary.dropdown-toggle type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"
-  /     = "Menu"
-  /   ul.dropdown-menu.dropdown-menu aria-labelled="dropdownMenuButton"
-  /     li.dropdown-item href="#"
-  /       = link_to (t 'defaults.user_show'), user_path(current_user)
-  /     li.dropdown-item href="#"
-  /       = link_to (t 'defaults.mypage'), user_mypages_path(current_user)
-  /     li.dropdown-item href="#"
-  /       = link_to (t 'defaults.logout'), logout_path, method: :delete
+- else
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    .navbar-brand
+      = link_to (t 'defaults.top'), root_path
 
+      = link_to (t 'defaults.post'), new_post_path
 
+    button.navbar-toggler type="button" data-bs-toggle="collapse" data-bs-target="#navbarmenu" aria-controls="navbarmenu" aria-expanded="false" aria-label="Toggle navigation"
+      span.navbar-toggler-icon
+
+    #navbarmenu.collapse.navbar-collapse
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        li.nav-item
+          b.nav-link href="#"
+            = link_to (t 'defaults.user_show'), user_path(current_user)
+        li.nav-item
+          b.nav-link href="#"
+            = link_to (t 'defaults.mypage'), user_mypages_path(current_user)
+        li.nav-item
+          b.nav-link href="#"
+            = link_to (t 'defaults.logout'), logout_path, method: :delete
