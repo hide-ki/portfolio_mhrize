@@ -5,7 +5,7 @@ class ArmorsController < ApplicationController
   def index
     @head_armors = HeadArmor.all
     @body_armors = BodyArmor.all
-    @armo_armors = ArmArmor.all
+    @arm_armors = ArmArmor.all
     @waist_armors = WaistArmor.all
     @foot_armors = FootArmor.all
   end

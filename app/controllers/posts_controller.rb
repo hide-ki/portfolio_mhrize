@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   before_action :correct_user, only: %i[edit update destroy]
+  skip_before_action :require_login, only: [:show]
 
   def index; end
 
@@ -74,6 +75,6 @@ class PostsController < ApplicationController
 
   def correct_user
     @post = Post.find(params[:id])
-    redirect_to root_path unless current_user == @post.user
+    redirect_to root_path unless current_user.admin? || current_user == @post.user
   end
 end
