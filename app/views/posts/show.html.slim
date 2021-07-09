@@ -26,50 +26,70 @@ table
         = @post.character_gender_i18n
       td
         = @post.user.name
+.post-show
+  table.armors style="display: flex;" align="left"
+    thead
+      tr style="display: block;"
+        th style="display: block;"
+          = "頭"
+        th style=" display: block;"
+          = "胴"
+        th style=" display: block;"
+          = "腕"
+        th style=" display: block;"
+          = "腰"
+        th style=" display: block;"
+          = "脚"
+    tbody
+      tr style=" display: block;"
+      - @post.armors.each do |armor|
+        td style=" display: block;"
+          - if armor.nil?
+            = 'なし'
+          - else
+            = armor.name
 
-table style="display: flex;" align="left"
-  thead
-    tr style="display: block;"
-      th style="display: block;"
-        = "頭"
-      th style=" display: block;"
-        = "胴"
-      th style=" display: block;"
-        = "腕"
-      th style=" display: block;"
-        = "腰"
-      th style=" display: block;"
-        = "脚"
-  tbody
-    tr style=" display: block;"
-    - @post.armors.each do |armor|
-      td style=" display: block;"
-        - if armor.nil?
-          = 'なし'
-        - else
-          = armor.name
-
-table align="center"
-  thead
-    tr 
-      th
-        = "彩度"
-      th
-        = "明度"
-      th
-        = "色彩"
+  table.first-color
+    thead
+      tr 
+        th
+          = "色相(H)"
+        th
+          = "彩度(S)"
+        th
+          = "明度(V)"
 
 
-  tbody
-    tr
-    - @post.first_colors.each do |color|
-      td
-        = color.hue
-      td
-        = color.saturation
-      td
-        = color.value
-      
+    tbody
+      - @post.first_colors.each do |color|
+        tr
+          td
+            = color.hue
+          td
+            = color.saturation
+          td
+            = color.value
+
+  table.second-color
+    thead
+      tr 
+        th
+          = "色相(H)"
+        th
+          = "彩度(S)"
+        th
+          = "明度(V)"
+
+
+    tbody
+      - @post.second_colors.each do |color|
+        tr
+          td
+            = color.hue
+          td
+            = color.saturation
+          td
+            = color.value
           
 / ul
 /   = @post.title

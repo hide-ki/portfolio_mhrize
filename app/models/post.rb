@@ -33,6 +33,7 @@ class Post < ApplicationRecord
     [head_armor, body_armor, arm_armor, waist_armor, foot_armor]
   end
 
+  # postが保存されると、colorsのpartにそれぞれ値をいれる
   def first_color_change_part
     first_colors.first.update(part: 'head')
     first_colors.second.update(part: 'body')
@@ -50,20 +51,20 @@ class Post < ApplicationRecord
   end
 
   # partを指定して、first_colorsを生成
-  def first_colors_build_specify_parts
-    first_colors.build(part: 'head')
-    first_colors.build(part: 'body')
-    first_colors.build(part: 'arm')
-    first_colors.build(part: 'waist')
-    first_colors.build(part: 'foot')
-  end
+  # def first_colors_build_specify_parts
+  #   first_colors.build(part: 'head')
+  #   first_colors.build(part: 'body')
+  #   first_colors.build(part: 'arm')
+  #   first_colors.build(part: 'waist')
+  #   first_colors.build(part: 'foot')
+  # end
 
   # partを指定して、second_colorsを生成
-  def second_colors_build_specify_parts
-    second_colors.build(part: 'head')
-    second_colors.build(part: 'body')
-    second_colors.build(part: 'arm')
-    second_colors.build(part: 'waist')
-    second_colors.build(part: 'foot')
-  end
+  # def second_colors_build_specify_parts
+  #   second_colors.build(part: 'head')
+  #   second_colors.build(part: 'body')
+  #   second_colors.build(part: 'arm')
+  #   second_colors.build(part: 'waist')
+  #   second_colors.build(part: 'foot')
+  # end
 end

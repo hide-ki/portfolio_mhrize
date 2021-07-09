@@ -9,10 +9,10 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    # 5.times{ @post.first_colors.build }
-    # 5.times{ @post.second_colors.build }
-    @post.first_colors_build_specify_parts
-    @post.second_colors_build_specify_parts
+    5.times{ @post.first_colors.build }
+    5.times{ @post.second_colors.build }
+    # @post.first_colors_build_specify_parts
+    # @post.second_colors_build_specify_parts
   end
 
   def create

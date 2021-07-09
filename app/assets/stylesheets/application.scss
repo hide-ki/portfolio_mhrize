@@ -23,7 +23,7 @@
 // ボディの背景
 .background {
   background-image: image-url("washi-2.jpeg");
-  padding-bottom: 100px;
+  padding-bottom: 300px;
 }
 // タイトル
 .title-name {
@@ -79,6 +79,7 @@ header {
 // footerの背景色
 footer {
   background-image: image-url("washi-2.jpeg");
+  bottom: 0;
   
   .notification-menu, .terms-menu, .privacy-menu {
     padding: 10px 10px;
@@ -94,4 +95,32 @@ footer {
 .password-field {
   font-family: "Meiryo UI", "Hiragino Sans", "Hiragino Kaku Gothic ProN",
 "Yu Gothic UI", "MS PGothic", sans-serif;
+}
+
+table.first-color, table.second-color {
+  width: 90px;
+  float: left;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+// 装備詳細画面の装備と着彩をひとまとめにしている
+.post-show {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  // 着彩1、着彩2の配置を指定
+  table.first-color, table.second-color {
+    width: 130px;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  // 装備の配置を指定
+  table.armors {
+    width: 200px;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 50px;
+  }
 }
