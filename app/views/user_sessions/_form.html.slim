@@ -7,7 +7,8 @@
 
     .field
       = f.label :password, User.human_attribute_name(:password), class: 'col-md-12'
-      = f.password_field :password, class: 'form-field'
+      .password-field
+        = f.password_field :password, class: 'form-field'
     
     .field.text-center
       = label_tag :remember, 'ログイン維持'

@@ -33,21 +33,21 @@ class Post < ApplicationRecord
     [head_armor, body_armor, arm_armor, waist_armor, foot_armor]
   end
 
-  # def first_color_change_part
-  #   first_colors.first.update(part: 'head')
-  #   first_colors.second.update(part: 'body')
-  #   first_colors.third.update(part: 'arm')
-  #   first_colors.fourth.update(part: 'waist')
-  #   first_colors.fifth.update(part: 'foot')
-  # end
+  def first_color_change_part
+    first_colors.first.update(part: 'head')
+    first_colors.second.update(part: 'body')
+    first_colors.third.update(part: 'arm')
+    first_colors.fourth.update(part: 'waist')
+    first_colors.fifth.update(part: 'foot')
+  end
 
-  # def second_color_change_part
-  #   second_colors.first.update(part: 'head')
-  #   second_colors.second.update(part: 'body')
-  #   second_colors.third.update(part: 'arm')
-  #   second_colors.fourth.update(part: 'waist')
-  #   second_colors.fifth.update(part: 'foot')  
-  # end
+  def second_color_change_part
+    second_colors.first.update(part: 'head')
+    second_colors.second.update(part: 'body')
+    second_colors.third.update(part: 'arm')
+    second_colors.fourth.update(part: 'waist')
+    second_colors.fifth.update(part: 'foot')  
+  end
 
   # partを指定して、first_colorsを生成
   def first_colors_build_specify_parts
