@@ -1,15 +1,18 @@
-h3 
+h3.text-center
   = t '.title'
 
 = form_with model: @user, url: password_reset_path(@token), local: true do |f|
 
-  = f.label :email
-  = @user.email
+  .mx-auto
+    .field
+      = f.label :email, class: 'col-md-12'
+      = @user.email
 
-  = f.label :password
-  = f.password_field :password
+      = f.label :password, class: 'col-md-12'
+      = f.password_field :password, class: 'form-field'
 
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation
+      = f.label :password_confirmation, class: 'col-md-12'
+      = f.password_field :password_confirmation, class: 'form-field'
 
-  = f.submit
+    .actions.text-center
+      = f.submit

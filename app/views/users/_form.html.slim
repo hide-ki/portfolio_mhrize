@@ -2,21 +2,22 @@
 
   = render 'shared/error_message', object: f.object
 
-  .field
-    = f.label :name, class: 'col-md-12'
-    = f.text_field :name
+  .mx-auto
+    .field
+      = f.label :name, class: 'col-md-12'
+      = f.text_field :name, class: 'form-field'
 
-  .field
-    = f.label :email, class: 'col-md-12'
-    = f.email_field :email
+    .field
+      = f.label :email, class: 'col-md-12'
+      = f.email_field :email, class: 'form-field'
 
-  .field
-    = f.label :password, class: 'col-md-12'
-    = f.password_field :password
+    .field
+      = f.label :password, class: 'col-md-12'
+      = f.password_field :password, class: 'form-field'
 
-  .field
-    = f.label :password_confirmation, class: 'col-md-12'
-    = f.password_field :password_confirmation
-  
-  .actions
-    = f.submit t 'defaults.register'
+    .field
+      = f.label :password_confirmation, class: 'col-md-12'
+      = f.password_field :password_confirmation, class: 'form-field'
+    
+    .actions.text-center
+      = f.submit t 'defaults.register'

@@ -3,10 +3,12 @@
   = f.label :character_gender
   = f.select :character_gender_eq, Post.character_genders_i18n.invert.map{|k, v| [k, Post.character_genders[v]] }, include_blank: '指定なし'
   = f.text_field :title_cont, placeholder: 'タイトルで検索'
-  = f.text_field :head_armor_name_cont, placeholder: '頭部で検索'
-  = f.text_field :body_armor_name_cont, placeholder: '胴部で検索'
-  = f.text_field :arm_armor_name_cont, placeholder: '腕部で検索'
-  = f.text_field :waist_armor_name_cont, placeholder: '腰部で検索'
-  = f.text_field :foot_armor_name_cont, placeholder: '脚部で検索'
+  .field
+    = f.text_field :head_armor_name_cont, placeholder: '頭部で検索', class: 'search-form'
+    = f.text_field :body_armor_name_cont, placeholder: '胴部で検索', class: 'search-form'
+    = f.text_field :arm_armor_name_cont, placeholder: '腕部で検索', class: 'search-form'
+    = f.text_field :waist_armor_name_cont, placeholder: '腰部で検索', class: 'search-form'
+    = f.text_field :foot_armor_name_cont, placeholder: '脚部で検索', class: 'search-form'
 
-  = f.submit
+  .actions.text-center
+    = f.submit

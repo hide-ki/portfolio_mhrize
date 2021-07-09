@@ -1,8 +1,6 @@
 - provide :title, (t '.title')
 
-h3
+h3.text-center
   = t '.title'
 
 = render 'form', user: @user, url: login_path
-
-= link_to 'パスワードを忘れた方はこちら', new_password_reset_path

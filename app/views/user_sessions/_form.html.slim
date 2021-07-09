@@ -1,16 +1,20 @@
 = form_with model: user, url: url, local: true do |f|
   
-  .field
-    = f.label :email, User.human_attribute_name(:email), class: 'col-md-10'
-    = f.email_field :email, class: 'col-md-3'
+  .mx-auto
+    .field
+      = f.label :email, User.human_attribute_name(:email), class: 'col-md-12'
+      = f.email_field :email, class: 'form-field'
 
-  .field
-    = f.label :password, User.human_attribute_name(:password), class: 'col-md-10'
-    = f.password_field :password, class: 'col-md-3'
-  
-  .field
-    = label_tag :remember, 'ログイン維持'
-    = check_box_tag :remember, params[:remember], true
+    .field
+      = f.label :password, User.human_attribute_name(:password), class: 'col-md-12'
+      = f.password_field :password, class: 'form-field'
+    
+    .field.text-center
+      = label_tag :remember, 'ログイン維持'
+      = check_box_tag :remember, params[:remember], true
 
-  .actions
-    = f.submit t 'defaults.login'
+    .actions.text-center
+      = f.submit t 'defaults.login'
+
+  .text-center
+    = link_to 'パスワードを忘れた方はこちら', new_password_reset_path, class: 'reset-password'

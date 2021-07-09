@@ -17,5 +17,59 @@
 
 .container-fluid {
   background-image: image-url("mh.jpeg");
+  padding-bottom: 30px;
+  padding-top: 30px;
 }
 
+.background {
+  background-image: image-url("washi-2.jpeg");
+  padding-bottom: 100px;
+}
+
+.title-name {
+  font-size: 50px;
+  color: white; 
+}
+
+.title-name2 {
+  font-family: "英椎行書";
+  color: white;
+}
+
+html, body {
+  font-family: "英椎行書";
+  font-style: oblique;
+}
+
+.top-menu, .signup-menu, .login-menu, .reset-password, .post-title {
+  color: black;
+}
+
+h3.text-center, h2.text-center {
+  padding-top: 30px;
+}
+
+.mx-auto {
+  width: 200px;
+}
+
+.form-field {
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px -2px gray inset;
+  width: 250px;
+}
+
+.actions.text-center {
+  padding-top: 10px;
+}
+
+.search-form {
+  width: 130px;
+}
+
+.card {
+  width: 320px;
+  margin: 10px;
+  padding-bottom: 10px;
+  background-color: #fffaf0;
+}

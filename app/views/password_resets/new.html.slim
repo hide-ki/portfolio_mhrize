@@ -1,9 +1,11 @@
-h3
+h3.text-center
   = t '.title'
 
 = form_with url: password_resets_path, local: true do |f|
 
-  = f.label :email, 'メールアドレス'
-  = f.email_field :email
-
-  = f.submit '送信'
+  .mx-auto
+    .field
+      = f.label :email, 'メールアドレス', class: 'col-md-12'
+      = f.email_field :email, class: 'form-field'
+    .actions.text-center
+      = f.submit '送信'
