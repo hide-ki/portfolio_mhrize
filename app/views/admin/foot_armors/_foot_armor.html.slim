@@ -1,3 +1,5 @@
-= foot_armor.name
-= link_to '削除', admin_armor_path(foot_armor), method: :delete, data: { confirm: '削除してもよろしいですか？' }
-= link_to '編集', edit_admin_armor_path(foot_armor)
+ul.armor-list
+  li.foot-armor-list
+    = foot_armor.name
+    = link_to '編集', edit_admin_armor_path(foot_armor), class: 'armor-link'
+    = link_to '削除', admin_armor_path(foot_armor), method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: 'armor-link'

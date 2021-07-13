@@ -2,15 +2,15 @@
 
   = render 'shared/error_message', object: f.object
 
-  .field
-    = f.label :title
-    = f.text_field :title
+  .form-style
+    .gender-field
+      = f.label :character_gender
+      = f.select :character_gender, Post.character_genders_i18n.keys.map{|k| [I18n.t("enums.post.character_gender.#{k}"), k]}
+    .title-field
+      = f.label :title
+      = f.text_field :title, class: 'form-field'
 
-  .field
-    = f.label :character_gender
-    = f.select :character_gender, Post.character_genders_i18n.keys.map{|k| [I18n.t("enums.post.character_gender.#{k}"), k]}
-
-  .field
+  .top-image.text-center
     = f.label :image
     = f.file_field :image, accept: 'image/*'
     / バリデーションエラーになった場合でも、画像がアップロードしたままになる
@@ -22,50 +22,62 @@
       = image_tag post.image.url, size: '100x100'
     / - else
       = image_tag 'goodstockphotos_eyecatch-480x302.jpeg', size: '100x100'
-    
-    = f.label :head_armor_id
-    = f.select :head_armor_id, HeadArmor.order(name: :asc).pluck(:name, :id), { prompt: '----' }
 
-    = f.label :body_armor_id
-    = f.select :body_armor_id, BodyArmor.order(name: :asc).pluck(:name, :id), { prompt: '----' }
+  .color-name-label
+    h5.first-color-label
+      = '着彩1'
+      = '色相(H)'
+      = '彩度(S)'
+      = '明度(V)'
+    h5.second-color-label
+      = '着彩2'
+      = '色相(H)'
+      = '彩度(S)'
+      = '明度(V)'
 
-    = f.label :arm_armor_id
-    = f.select :arm_armor_id, ArmArmor.order(name: :asc).pluck(:name, :id), { prompt: '----' }
+  .form-groups
+    .form-armor
+      .field.mb-1
+        = f.label :head_armor_id
+        = f.select :head_armor_id, HeadArmor.order(name: :asc).pluck(:name, :id), { prompt: '----' }, class: 'armor-field'
+      .field.mb-1
+        = f.label :body_armor_id
+        = f.select :body_armor_id, BodyArmor.order(name: :asc).pluck(:name, :id), { prompt: '----' }, class: 'armor-field'
+      .field.mb-1
+        = f.label :arm_armor_id
+        = f.select :arm_armor_id, ArmArmor.order(name: :asc).pluck(:name, :id), { prompt: '----' }, class: 'armor-field'
+      .field.mb-1
+        = f.label :waist_armor_id
+        = f.select :waist_armor_id, WaistArmor.order(name: :asc).pluck(:name, :id), { prompt: '----' }, class: 'armor-field'
+      .field.mb-1
+        = f.label :foot_armor_id
+        = f.select :foot_armor_id, FootArmor.order(name: :asc).pluck(:name, :id), { prompt: '----' }, class: 'armor-field'
 
-    = f.label :waist_armor_id
-    = f.select :waist_armor_id, WaistArmor.order(name: :asc).pluck(:name, :id), { prompt: '----' }
+    .first-color-form
+      = f.fields_for :first_colors do |ff|
+        .color-fields
+          .color-field
+            /= ff.label :hue
+            = ff.number_field :hue, { max: 300 }
+          .color-field
+            /= ff.label :saturation
+            = ff.number_field :saturation, { max: 300 }
+          .color-field
+            /= ff.label :value
+            = ff.number_field :value, { max: 300 }
 
-    = f.label :foot_armor_id
-    = f.select :foot_armor_id, FootArmor.order(name: :asc).pluck(:name, :id), { prompt: '----' }
+    .second-color-form
+      = f.fields_for :second_colors do |fff|
+        .color-fields
+          .color-field
+            /= fff.label :hue
+            = fff.number_field :hue, { max: 300 }
+          .color-field
+            /= fff.label :saturation
+            = fff.number_field :saturation, { max: 300 }
+          .color-field
+            /= fff.label :value
+            = fff.number_field :value, { max: 300 }
 
-  = label_tag :first_color, '着彩1'
-
-  = f.fields_for :first_colors do |ff|
-      / = ff.label :着彩1
-      / 繰り返し処理などのメソッドで、順番にpartにhead,body...と入れたい
-      / = ff.hidden_field :part
-
-      = ff.label :hue
-      = ff.number_field :hue, { max: 300 }
-
-      = ff.label :saturation
-      = ff.number_field :saturation, { max: 300 }
-
-      = ff.label :value
-      = ff.number_field :value, { max: 300 }
-
-  = label_tag :second_color, '着彩2'
-
-  = f.fields_for :second_colors do |fff|
-
-      = fff.label :hue
-      = fff.number_field :hue, { max: 300 }
-
-      = fff.label :saturation
-      = fff.number_field :saturation, { max: 300 }
-
-      = fff.label :value
-      = fff.number_field :value, { max: 300 }
-
-  .actions
+  .actions.text-center.mt-5
     = f.submit button_name

@@ -90,35 +90,8 @@ table
             = color.saturation
           td
             = color.value
-          
-/ ul
-/   = @post.title
 
-/   = @post.character_gender_i18n
-
-/   = @post.user.name
-
-/   - if @post.image?
-/     = image_tag @post.image_url, size: '300x200'
-
-/   - @post.armors.each do |armor|
-/     - if armor.nil?
-/       = 'なし'
-/     - else
-/       = armor.name
-  
-/   - @post.first_colors.each do |color|
-/     = color.hue
-/     = color.saturation
-/     = color.value
-  
-/   - @post.second_colors.each do |color|
-/     = color.hue
-/     = color.saturation
-/     = color.value
-  
-/ - if current_user&.own?(@post)
-/   = link_to (t 'defaults.edit'), edit_post_path(@post)
-/   = link_to (t 'defaults.destroy'), post_path(@post), method: :delete, data: { confirm: (t '.dialog') }
-
-  
+.link-menu
+  - if current_user && current_user == @post.user
+    = link_to (t '.edit'), edit_post_path(@post), class: 'edit-link'
+    = link_to (t '.destroy'), post_path(@post), method: :delete, data: { confirm: (t '.dialog') }, class: 'destroy-link'

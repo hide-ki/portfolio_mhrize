@@ -1,13 +1,23 @@
 - provide :title, (t '.title')
 
-h3
+h3.text-center.mb-3
   = t '.title'
 
-= current_user.name
-br
-= current_user.email
+table.user-show
+  thead
+    tr
+      th
+        = User.human_attribute_name(:name)
+      th
+        = User.human_attribute_name(:email)
 
-= link_to '編集', edit_user_path(current_user)
-br
-
-= link_to '削除', user_path(current_user), method: :delete, data: { confirm: (t '.dialog') } unless current_user.admin?
+  tbody
+    tr
+      td
+        = current_user.name
+      td
+        = current_user.email
+      td
+        = link_to '編集', edit_user_path(current_user), class: 'edit-link'
+      td
+        = link_to '削除', user_path(current_user), method: :delete, data: { confirm: (t '.dialog') }, class: 'destroy-link' unless current_user.admin? 

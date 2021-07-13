@@ -1,19 +1,29 @@
 - provide :title, (t '.title')
 
-h3
+h3.text-center.mb-3
   = t '.title'
 
 - if @head_armors.present?
+  h5
+    = HeadArmor.human_attribute_name(:type)
   = render @head_armors
 
 - if @body_armors.present?
+  h5
+    = BodyArmor.human_attribute_name(:type)
   = render @body_armors
 
 - if @arm_armors.present?
+  h5
+    = ArmArmor.human_attribute_name(:type)
   = render @arm_armors
 
 - if @waist_armors.present?
+  h5
+    = WaistArmor.human_attribute_name(:type)
   = render @waist_armors
 
 - if @foot_armors.present?
+  h5
+    = FootArmor.human_attribute_name(:type)
   = render @foot_armors

@@ -40,12 +40,16 @@ html, body {
   font-style: oblique;
 }
 // リンクなどの文字色を変更
-.top-menu, .signup-menu, .login-menu, .reset-password, .post-title, .post-menu, .mypage-menu, .logout-menu, .user-menu, .armor-menu, .notification-menu, .notification-menu, .terms-menu, .privacy-menu, .create-search {
+.top-menu, .signup-menu, .login-menu, .reset-password, .post-title, .post-menu, .mypage-menu, .logout-menu, .user-menu, .armor-menu, .notification-menu, .notification-menu, .terms-menu, .privacy-menu, .create-search, .edit-link, .destroy-link, .admin-destroy-link, .armor-link {
   color: black;
 }
 // 各ページのタイトルの位置を調整
 h3.text-center, h2.text-center {
   padding-top: 30px;
+}
+
+.post-menu {
+  margin-left: 30px;
 }
 // 
 .mx-auto {
@@ -97,15 +101,10 @@ footer {
 "Yu Gothic UI", "MS PGothic", sans-serif;
 }
 
-table.first-color, table.second-color {
-  width: 90px;
-  float: left;
-  margin-left: 5px;
-  margin-right: 5px;
-}
 // 装備詳細画面の装備と着彩をひとまとめにしている
 .post-show {
   width: 500px;
+  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
   // 着彩1、着彩2の配置を指定
@@ -123,4 +122,92 @@ table.first-color, table.second-color {
     margin-right: 5px;
     margin-top: 50px;
   }
+}
+// 投稿ページの性別とタイトルを横並びにする
+.form-style {
+  display: inline-flex;
+
+  .gender-field {
+    margin-left: 100px;
+  }
+
+  .title-field {
+    margin-left: 40px;
+  }
+}
+
+.form-groups {
+  width: 80%;
+  display: inline-flex;
+
+  .form-armor {
+    width: 30%;
+    margin-left: auto;
+  }
+
+  .first-color-form {
+    width: 25%;
+
+    .color-fields {
+      display: inline-flex;
+    }
+  }
+  
+  .second-color-form {
+    width: 25%;
+
+    .color-fields {
+      display: inline-flex;
+    }
+    
+  }
+} 
+
+// colorの入力フォームの設定
+input[type="number"] {
+  width: 50px;
+  border-radius: 5px;
+}
+
+// 投稿フォームの画像の配置
+.top-image {
+  margin: 50px 50px;
+}
+// 装備の選択欄
+.armor-field {
+  height: 25px;
+}
+// .first-color-labelと.second-color-labelをグループ化
+.color-name-label {
+  display: flex;
+}
+// 着彩1、色相などのラベル
+.first-color-label {
+  margin-left: 31%;
+  font-size: 16px;
+}
+// 着彩2、色相などのラベル
+.second-color-label {
+  margin-left: 25px;
+  font-size: 16px;
+}
+
+table.user-show {
+  width: 50%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.armor-list {
+  display: inline-flex;
+}
+
+.head-armor-list, .body-armor-list, .arm-armor-list, .waist-armor-list, .foot-armor-list {
+  width: 200px;
+}
+// admin/postsの一覧でのカードの表示部分の調整
+.admin-destroy-link {
+  margin-left: 3px;
+  margin-right: 3px;
 }

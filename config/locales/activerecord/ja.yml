@@ -42,3 +42,21 @@ ja:
         hue: 色相
         saturation: 彩度
         value: 明度
+      armor:
+        type: '部位'
+        name: '防具名'
+      head_armor:
+        type: '頭部'
+        name: '防具名'
+      body_armor:
+        type: '胴部'
+        name: '防具名'
+      arm_armor:
+        type: '腕部'
+        name: '防具名'
+      waist_armor:
+        type: '腰部'
+        name: '名前'
+      foot_armor:
+        type: '脚部'
+        name: '名前'

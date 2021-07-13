@@ -1,6 +1,6 @@
 - provide :title, (t '.title')
 
-h3
+h3.text-center.mb-3
   = t '.title'
 
-= render 'form', armor: @armor, url: admin_armor_path
+= render 'form', armor: @armor, url: admin_armor_path, button_name: (t 'defaults.update')
