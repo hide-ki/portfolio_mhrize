@@ -1,1 +1,2 @@
-= link_to 'いいね解除', post_like_path(post, [post, like]), method: :delete
+= link_to post_like_path(post, [post, like]), method: :delete do
+  = icon 'fas', 'heart'

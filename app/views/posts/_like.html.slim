@@ -1,1 +1,2 @@
-= link_to 'いいね', post_likes_path(post), method: :post
+= link_to post_likes_path(post), method: :post do
+  = icon 'far', 'heart'

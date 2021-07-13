@@ -42,3 +42,4 @@ yarn-debug.log*
 
 # テスト用の画像を保存している
 spec/fixtures
+
