@@ -12,6 +12,7 @@
       - if logged_in?
         = render 'posts/like_area', post: post, like: like
 
+
   .card-img-bottom
     - if post.image?
       = link_to image_tag(post.image_url, size: '300x200'), post_path(post), class: 'post_image'

@@ -1,2 +1,4 @@
-= link_to post_like_path(post, [post, like]), method: :delete do
-  = icon 'fas', 'heart'
+= link_to post_like_path(post, [post, like]), id: "js-like-button-#{post.id}", remote: true , method: :delete do
+  .likes-button
+    = icon 'fas', 'heart'
+    = post.likes.count

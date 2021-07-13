@@ -42,7 +42,7 @@ html, body {
   font-style: oblique;
 }
 // リンクなどの文字色を変更
-.top-menu, .signup-menu, .login-menu, .reset-password, .post-title, .post-menu, .mypage-menu, .logout-menu, .user-menu, .armor-menu, .notification-menu, .notification-menu, .terms-menu, .privacy-menu, .create-search, .edit-link, .destroy-link, .admin-destroy-link, .armor-link {
+.top-menu, .signup-menu, .login-menu, .reset-password, .post-title, .post-menu, .mypage-menu, .logout-menu, .user-menu, .armor-menu, .notification-menu, .notification-menu, .terms-menu, .privacy-menu, .create-search, .edit-link, .destroy-link, .admin-destroy-link, .armor-link, .likes-button {
   color: black;
 }
 // 各ページのタイトルの位置を調整
@@ -212,4 +212,8 @@ table.user-show {
 .admin-destroy-link {
   margin-left: 3px;
   margin-right: 3px;
+}
+
+.likes-button {
+  float: right;
 }
