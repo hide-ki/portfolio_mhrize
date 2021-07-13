@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :mypages, only: [:index]
   end
-  resources :posts, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :posts, only: [:show, :new, :create, :edit, :update, :destroy] do
+    resources :likes, only: [:create, :destroy]
+  end
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'

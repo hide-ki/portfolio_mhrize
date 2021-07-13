@@ -3,6 +3,7 @@ class Post < ApplicationRecord
 
   has_many :first_colors, dependent: :destroy
   has_many :second_colors, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   accepts_nested_attributes_for :first_colors, :second_colors
 

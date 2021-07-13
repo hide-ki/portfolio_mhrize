@@ -6,11 +6,12 @@
   h2.text-center
     = "重ね着一覧"
 
-  = sort_link(@q, :created_at, '作成日順', default_order: :desc)
+  .text-center
+    = sort_link(@q, :created_at, '作成日順', default_order: :desc)
 
   .row
     .col-12
       .row
-        = render @posts
+        = render @posts, like: @like
 
         = paginate(@posts)

@@ -12,10 +12,16 @@ class User < ApplicationRecord
   validates :reset_password_token, uniqueness: true, allow_nil: true
 
   has_many :posts
+  has_many :likes, dependent: :destroy
+  has_many :like_posts, through: :likes, source: :post
 
   enum role: { general: 0, admin: 1 }
 
   def own?(object)
     id == object.user_id
+  end
+
+  def like?(post)
+    likes.where(post_id: post.id).exists?
   end
 end

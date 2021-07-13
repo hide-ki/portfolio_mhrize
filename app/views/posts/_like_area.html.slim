@@ -1,0 +1,4 @@
+- if current_user.like?(post)
+  = render 'posts/unlike', post: post, like: like
+- else
+  = render 'posts/like', post: post
