@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   has_many :first_colors, dependent: :destroy
   has_many :second_colors, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liked_users, through: :likes, source: :user
 
   accepts_nested_attributes_for :first_colors, :second_colors
 
@@ -49,6 +50,12 @@ class Post < ApplicationRecord
     second_colors.third.update(part: 'arm')
     second_colors.fourth.update(part: 'waist')
     second_colors.fifth.update(part: 'foot')  
+  end
+
+  # いいねの多い順で並び替える
+  ransacker :likes_count do
+    query = '(SELECT COUNT(likes.post_id) FROM likes where likes.post_id = posts.id GROUP BY likes.post_id)'
+    Arel.sql(query)
   end
 
   # partを指定して、first_colorsを生成

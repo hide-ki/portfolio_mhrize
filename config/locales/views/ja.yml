@@ -40,8 +40,8 @@ ja:
     show:
       title: '装備詳細'
       dialog: '投稿を削除してもよろしいですか？'
-      edit: '重ね着編集'
-      destroy: '重ね着削除'
+      edit: '編集'
+      destroy: '削除'
     new:
       title: '投稿'
     create:

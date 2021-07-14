@@ -93,5 +93,5 @@ table
 
 .link-menu
   - if current_user && current_user == @post.user
-    = link_to (t '.edit'), edit_post_path(@post), class: 'edit-link'
+    = link_to (t '.edit'), edit_post_path(@post), class: 'edit-link mx-2'
     = link_to (t '.destroy'), post_path(@post), method: :delete, data: { confirm: (t '.dialog') }, class: 'destroy-link'

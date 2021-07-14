@@ -22,6 +22,8 @@ ja:
         arm_armor_id: 腕
         waist_armor_id: 腰
         foot_armor_id: 脚
+        created_at: 作成日
+        updated_at: 更新日
       first_color:
         id: ID
         part: 部位

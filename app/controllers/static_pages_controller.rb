@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
   private
 
     def search_params
-      params[:q]&.permit(:character_gender,
+      params[:q]&.permit(:character_gender, :title,
                           :head_armor_id, :body_armor_id, :arm_armor_id, :waist_armor_id, :foot_armor_id)
     end
 end

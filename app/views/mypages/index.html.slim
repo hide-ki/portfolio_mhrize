@@ -5,12 +5,11 @@
     .col-lg-10.offset-lg-1
       = render 'shared/search_form', q: @q, url: user_mypages_path(current_user)
 
-  h3
+  h3.text-center
     = t '.title'
-  h4
+  h4.text-center
     = '投稿一覧'
   
-  = sort_link(@q, :created_at, '作成順', default_order: :desc)
 
   .row
     .col-12
@@ -18,6 +17,6 @@
 
 
         / = render 'posts/post', posts: @posts
-        = render @posts
+        = render @posts, like: @like
 
         = paginate(@posts)

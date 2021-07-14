@@ -1,14 +1,11 @@
-.container.pt-3
-  .row
-    .col-lg-10.offset-lg-1
-      = render 'shared/search_form', q: @q, url: root_path
+.container.mt-3
+  = render 'shared/search_form', q: @q, url: root_path
 
   h2.text-center
     = "重ね着一覧"
 
-  .text-center
-    = sort_link(@q, :created_at, '作成日順', default_order: :desc)
-
+  / .text-center
+  /   = sort_link(@q, :created_at, '作成日順', default_order: :desc)
   .row
     .col-12
       .row
