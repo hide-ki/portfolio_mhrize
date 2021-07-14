@@ -1,14 +1,10 @@
 = search_form_for(q, url: url) do |f|
 
-  .label-tag
-    = f.label :character_gender, class: 'mx-3'
-    = f.label 'ハート順', class: 'mx-3'
-    = f.label '投稿順', class: 'mx-3'
-  .search-box
-    = f.select :character_gender_eq, Post.character_genders_i18n.invert.map{|k, v| [k, Post.character_genders[v]] }, include_blank: '指定なし'
-    = f.select( :sorts, { 'ハートの多い順': 'likes_count desc', 'ハートの少ない順': 'likes_count asc' }, { include_blank: '指定なし' })
-    = f.select( :sorts, { '新しい順': 'updated_at desc', '古い順': 'updated_at asc' }, { include_blank: '指定なし' })
-    = f.text_field :title_cont, placeholder: 'タイトルで検索'
+  = f.label :character_gender, class: 'mx-3'
+  = f.select :character_gender_eq, Post.character_genders_i18n.invert.map{|k, v| [k, Post.character_genders[v]] }, include_blank: '指定なし'
+  = f.label '並び順', class: 'mx-3'
+  = f.select(:sorts, { 'ハートの多い順': 'likes_count desc', 'ハートの少ない順': 'likes_count asc', '新しい順': 'updated_at desc', '古い順': 'updated_at asc' }, { include_blank: '並び順' })
+  = f.text_field :title_cont, placeholder: 'タイトルで検索'
   .field
     = f.text_field :head_armor_name_cont, placeholder: '頭部で検索', class: 'search-form'
     = f.text_field :body_armor_name_cont, placeholder: '胴部で検索', class: 'search-form'
