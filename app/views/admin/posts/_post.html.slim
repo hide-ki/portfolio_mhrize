@@ -16,6 +16,8 @@
       = link_to "投稿削除", admin_post_path(post), method: :delete, data: { confirm: '投稿を削除しますか？' }, class: 'admin-destroy-link'
       = post.user.name
       = link_to "ユーザー削除", admin_user_path(post.user), method: :delete, data: { confirm: 'ユーザーを削除しますか？' }, class: 'admin-destroy-link' unless current_user == post.user
+      = render 'posts/like_area', post: post, like: like
+
 
   .card-img-bottom
     -if post.image?

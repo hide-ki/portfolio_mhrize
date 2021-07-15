@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:new, :create, :show, :edit, :update, :destroy] do
     resources :mypages, only: [:index]
+    resources :favorites, only: [:index]
   end
   resources :posts, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :likes, only: [:create, :destroy]

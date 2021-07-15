@@ -19,9 +19,9 @@
     = image_tag post.image.url, size: "100x100" if post.image?
     
     / - if post.image?
-      = image_tag post.image.url, size: '100x100'
+      = image_tag post.image.url, size: '100x100', id: 'preview'
     / - else
-      = image_tag 'goodstockphotos_eyecatch-480x302.jpeg', size: '100x100'
+    /   = image_tag 'goodstockphotos_eyecatch-480x302.jpeg', size: '100x100'
 
   .color-name-label
     h5.first-color-label

@@ -1,15 +1,20 @@
+- provide :title, (t '.title')
+
 .container.pt-3
   .row
     .col-lg-10.offset-lg-1
-      = render 'shared/search_form', q: @q, url: admin_root_path
+      = render 'shared/search_form', q: @q, url: user_favorites_path(current_user)
 
-  h3.text-center.mb-3
-    = '重ね着一覧'
-  = sort_link(@q, :created_at, '作成順', default_order: :desc)
+  h3.text-center
+    = t '.title'
+
+  
 
   .row
     .col-12
       .row
+
+
         / = render 'posts/post', posts: @posts
         = render @posts, like: @like
 

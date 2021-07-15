@@ -20,6 +20,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   #
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
   # end
+  # def default_url
+  #   'peach-1.jpeg'
+  # end
 
   # def default_url(*args)
   #  "/images/" + [version_name, "default.jpeg"].compact.join('_')

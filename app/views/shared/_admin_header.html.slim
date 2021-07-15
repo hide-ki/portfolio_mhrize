@@ -17,10 +17,13 @@ nav.navbar.navbar-expand-lg.navbar-light
           = link_to (t 'defaults.mypage'), user_mypages_path(current_user), class: 'mypage-menu'
       li.nav-item
         b.nav-link href="#"
+          = link_to (t 'defaults.favorite'), user_favorites_path(current_user), class: 'favorite-menu'
+      li.nav-item
+        b.nav-link href="#"
           = link_to (t 'defaults.logout'), logout_path, method: :delete, class: 'logout-menu'
       li.nav-item
         b.nav-link href="#"
-          = link_to "装備作成", new_admin_armor_path, class: 'armor-menu'
+          = link_to (t 'defaults.create_armor'), new_admin_armor_path, class: 'armor-menu'
       li.nav-item
         b.nav-link href="#"
-          = link_to "装備一覧", admin_armors_path, class: 'armor-menu'
+          = link_to (t 'defaults.index_armor'), admin_armors_path, class: 'armor-menu'

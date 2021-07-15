@@ -12,6 +12,9 @@ ja:
     destroy: '削除'
     create: '作成'
     user_show: 'ユーザー情報'
+    favorite: 'お気に入り'
+    create_armor: '装備作成'
+    index_armor: '装備一覧'
   users:
     new:
       title: 'ユーザー新規登録'
@@ -70,3 +73,6 @@ ja:
         title: '装備作成'
       edit:
         title: '装備編集'
+  favorites:
+    index:
+      title: 'お気に入り一覧'

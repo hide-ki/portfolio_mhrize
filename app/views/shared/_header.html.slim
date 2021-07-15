@@ -17,4 +17,7 @@ nav.navbar.navbar-expand-lg.navbar-light
           = link_to (t 'defaults.mypage'), user_mypages_path(current_user), class: 'mypage-menu'
       li.nav-item
         b.nav-link href="#"
+          = link_to (t 'defaults.favorite'), user_favorites_path(current_user), class: 'favorite-menu'
+      li.nav-item
+        b.nav-link href="#"
           = link_to (t 'defaults.logout'), logout_path, method: :delete, class: 'logout-menu'
