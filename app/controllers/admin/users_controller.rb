@@ -1,5 +1,5 @@
 class Admin::UsersController < Admin::BaseController
-  before_action :set_user, only: %i[destroy]
+  before_action :set_user, only: [:destroy]
 
   def destroy
     @user.destroy!

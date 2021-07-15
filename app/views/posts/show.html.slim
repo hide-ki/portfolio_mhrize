@@ -95,3 +95,6 @@ table
   - if current_user && current_user == @post.user
     = link_to (t '.edit'), edit_post_path(@post), class: 'edit-link mx-2'
     = link_to (t '.destroy'), post_path(@post), method: :delete, data: { confirm: (t '.dialog') }, class: 'destroy-link'
+= link_to "http://twitter.com/intent/tweet?url=#{ request.url }/&hashtags=モンハンライズ%2C重ね着 を、Twitterでみんなに広めよう" do
+        i.fab.fa-twitter style='color: #3399FF;'
+        |  共有

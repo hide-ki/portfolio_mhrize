@@ -1,6 +1,6 @@
 class Admin::ArmorsController < Admin::BaseController
   before_action :set_armor, only: [:edit, :update, :destroy]
-  
+
   def index
     @head_armors = HeadArmor.all
     @body_armors = BodyArmor.all
@@ -16,7 +16,7 @@ class Admin::ArmorsController < Admin::BaseController
   def create
     @armor = Armor.new(armor_params)
     if @armor.save
-      redirect_to new_admin_armor_path, success: "#{@armor.attributes}"
+      redirect_to new_admin_armor_path, success: @armor.attributes.to_s
     else
       redirect_to new_admin_armor_path, danger: '装備の作成に失敗しました。'
     end
@@ -49,7 +49,6 @@ class Admin::ArmorsController < Admin::BaseController
     @armor.destroy!
     redirect_to admin_armors_path, success: '装備を削除しました。'
   end
-
 
   private
 

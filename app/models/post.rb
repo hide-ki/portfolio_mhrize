@@ -22,7 +22,6 @@ class Post < ApplicationRecord
 
   enum character_gender: { gentlemen: 0, lady: 1 }
 
-
   def armor_name(object)
     if object.nil?
       'なし'
@@ -49,7 +48,7 @@ class Post < ApplicationRecord
     second_colors.second.update(part: 'body')
     second_colors.third.update(part: 'arm')
     second_colors.fourth.update(part: 'waist')
-    second_colors.fifth.update(part: 'foot')  
+    second_colors.fifth.update(part: 'foot')
   end
 
   # いいねの多い順で並び替える

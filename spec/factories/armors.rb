@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :armor do
-    type { "" }
-    name { "MyString" }
+    type { '' }
+    name { 'MyString' }
   end
 end

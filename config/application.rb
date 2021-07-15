@@ -41,13 +41,13 @@ module PortfolioMhrize
 
     config.generators do |g|
       g.test_framework :rspec,
-                        view_specs: false,
-                        helper_specs: false,
-                        routing_specs: false,
-                        controller_specs: false,
-                        model_specs: true,
-                        request_specs: false,
-                        fixtures: true
+                       view_specs: false,
+                       helper_specs: false,
+                       routing_specs: false,
+                       controller_specs: false,
+                       model_specs: true,
+                       request_specs: false,
+                       fixtures: true
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
     # Don't generate system test files.

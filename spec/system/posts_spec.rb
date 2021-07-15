@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Posts", type: :system do
+RSpec.describe 'Posts', type: :system do
   let(:user) { create(:user) }
   let(:other_user) { create(:user) }
   let(:post) { create(:post, user: user) }
@@ -40,6 +40,15 @@ RSpec.describe "Posts", type: :system do
         expect(page).to have_content '装備詳細'
         expect(current_path).to eq post_path(post)
       end
+      it 'postを正常に編集できること' do
+        login_as(user)
+        post
+        visit edit_post_path(post)
+        fill_in 'タイトル', with: 'hoge'
+        click_button '更新'
+        expect(page).to have_content '編集しました。'
+        expect(current_path).to eq post_path(post)
+      end
     end
   end
   describe 'Post編集' do
@@ -64,6 +73,33 @@ RSpec.describe "Posts", type: :system do
         find('.post_image').click
         visit edit_post_path(post)
         expect(current_path).to eq root_path
+      end
+    end
+  end
+  describe 'Post削除' do
+    context '確認ダイアログでOKボタンをおす' do
+      it 'postを削除できること' do
+        login_as(user)
+        post
+        visit post_path(post)
+        click_link '削除'
+        expect do
+          expect(page.accept_confirm).to eq '投稿を削除してもよろしいですか？'
+          expect(page).to have_content '削除しました。'
+        end.to change(user.posts, :count).by(-1)
+        expect(current_path).to eq root_path
+      end
+    end
+    context '確認ダイアログでキャンセルボタンをおす' do
+      it 'postを削除できないこと' do
+        login_as(user)
+        post
+        visit post_path(post)
+        click_link '削除'
+        expect do
+          expect(page.dismiss_confirm).to eq '投稿を削除してもよろしいですか？'
+        end.to change(user.posts, :count).by(0)
+        expect(current_path).to eq post_path(post)
       end
     end
   end
