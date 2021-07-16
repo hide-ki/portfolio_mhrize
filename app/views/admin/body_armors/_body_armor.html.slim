@@ -1,5 +1,5 @@
 ul.armor-list
   li.body-armor-list
     = body_armor.name
-    = link_to '編集', edit_admin_armor_path(body_armor), class: 'armor-link'
+    = link_to '編集', edit_admin_armor_path(body_armor), class: 'armor-link mx-2'
     = link_to '削除', admin_armor_path(body_armor), method: :delete, data: { confirm: '削除してもよろしいですか？' }, class: 'armor-link'

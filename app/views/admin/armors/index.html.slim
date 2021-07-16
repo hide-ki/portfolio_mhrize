@@ -6,24 +6,29 @@ h3.text-center.mb-3
 - if @head_armors.present?
   h5
     = HeadArmor.human_attribute_name(:type)
+    = HeadArmor.count
   = render @head_armors
 
 - if @body_armors.present?
   h5
     = BodyArmor.human_attribute_name(:type)
+    = BodyArmor.count
   = render @body_armors
 
 - if @arm_armors.present?
   h5
     = ArmArmor.human_attribute_name(:type)
+    = ArmArmor.count
   = render @arm_armors
 
 - if @waist_armors.present?
   h5
     = WaistArmor.human_attribute_name(:type)
+    = WaistArmor.count
   = render @waist_armors
 
 - if @foot_armors.present?
   h5
     = FootArmor.human_attribute_name(:type)
+    = FootArmor.count
   = render @foot_armors
