@@ -70,7 +70,9 @@ gem 'rails-i18n'
 gem 'pry-rails'
 gem 'pry-byebug'
 gem 'enum_help'
+# 画像アップロード関連
 gem 'carrierwave'
+gem 'mini_magick'
 # 検索機能
 gem 'ransack'
 # ページネーション
