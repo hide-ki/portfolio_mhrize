@@ -1,6 +1,6 @@
 class Admin::StaticPagesController < Admin::BaseController
   def top
-    @q = Post.ransack(params[:q])
+    @q = Post.includes(:user, :likes).ransack(params[:q])
     @posts = @q.result(distinct: true).page(params[:page]).order(created_at: :desc)
   end
 

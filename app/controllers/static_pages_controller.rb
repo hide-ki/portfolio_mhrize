@@ -2,7 +2,7 @@ class StaticPagesController < ApplicationController
   skip_before_action :require_login
 
   def top
-    @q = Post.ransack(search_params)
+    @q = Post.includes(:likes).ransack(search_params)
     @posts = @q.result(distinct: true).page(params[:page]).order(created_at: :desc)
   end
 

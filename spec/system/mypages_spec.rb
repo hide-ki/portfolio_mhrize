@@ -11,7 +11,7 @@ RSpec.describe 'Mypages', type: :system do
         post
         other_post
         visit user_mypages_path(user)
-        expect(page).to have_selector("img[src$='goodstockphotos_eyecatch-480x302.jpeg']")
+        expect(page).to have_selector("img[src$='images.jpeg']")
         expect(page).to have_selector("img[src$='peach-1.jpg']")
         expect(current_path).to eq user_mypages_path(user)
       end

@@ -2,7 +2,7 @@ class FavoritesController < ApplicationController
   before_action :authenticate_user, only: [:index]
 
   def index
-    @q = current_user.like_posts.ransack(search_params)
+    @q = current_user.like_posts.includes(:user, :likes).ransack(search_params)
     @posts = @q.result(distinct: true).page(params[:page]).order(created_at: :desc)
   end
 
