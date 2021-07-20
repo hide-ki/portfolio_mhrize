@@ -1,82 +1,84 @@
-class Admin::ArmorsController < Admin::BaseController
-  before_action :set_armor, only: [:edit, :update, :destroy]
+module Admin
+  class ArmorsController < Admin::BaseController
+    before_action :set_armor, only: [:edit, :update, :destroy]
 
-  def index
-    @head_armors = HeadArmor.all
-    @body_armors = BodyArmor.all
-    @arm_armors = ArmArmor.all
-    @waist_armors = WaistArmor.all
-    @foot_armors = FootArmor.all
-  end
-
-  def new
-    @armor = Armor.new
-  end
-
-  def create
-    @armor = Armor.new(armor_params)
-    if @armor.save
-      redirect_to new_admin_armor_path, success: @armor.attributes.to_s
-    else
-      redirect_to new_admin_armor_path, danger: '装備の作成に失敗しました。'
+    def index
+      @head_armors = HeadArmor.all
+      @body_armors = BodyArmor.all
+      @arm_armors = ArmArmor.all
+      @waist_armors = WaistArmor.all
+      @foot_armors = FootArmor.all
     end
-  end
 
-  def edit; end
-
-  def update
-    case @armor.type
-    when 'HeadArmor'
-      @armor.assign_attributes(head_armor_params)
-    when 'BodyArmor'
-      @armor.assign_attributes(body_armor_params)
-    when 'ArmArmor'
-      @armor.assign_attributes(arm_armor_params)
-    when 'WaistArmor'
-      @armor.assign_attributes(waist_armor_params)
-    when 'FootArmor'
-      @armor.assign_attributes(foot_armor_params)
+    def new
+      @armor = Armor.new
     end
-    if @armor.save
-      redirect_to admin_armors_path, success: '装備を更新しました。'
-    else
-      flash.now[:danger] = '装備の更新に失敗しました。'
-      render :edit
+
+    def create
+      @armor = Armor.new(armor_params)
+      if @armor.save
+        redirect_to new_admin_armor_path, success: @armor.attributes.to_s
+      else
+        redirect_to new_admin_armor_path, danger: '装備の作成に失敗しました。'
+      end
     end
-  end
 
-  def destroy
-    @armor.destroy!
-    redirect_to admin_armors_path, success: '装備を削除しました。'
-  end
+    def edit; end
 
-  private
+    def update
+      case @armor.type
+      when 'HeadArmor'
+        @armor.assign_attributes(head_armor_params)
+      when 'BodyArmor'
+        @armor.assign_attributes(body_armor_params)
+      when 'ArmArmor'
+        @armor.assign_attributes(arm_armor_params)
+      when 'WaistArmor'
+        @armor.assign_attributes(waist_armor_params)
+      when 'FootArmor'
+        @armor.assign_attributes(foot_armor_params)
+      end
+      if @armor.save
+        redirect_to admin_armors_path, success: '装備を更新しました。'
+      else
+        flash.now[:danger] = '装備の更新に失敗しました。'
+        render :edit
+      end
+    end
 
-  def set_armor
-    @armor = Armor.find(params[:id])
-  end
+    def destroy
+      @armor.destroy!
+      redirect_to admin_armors_path, success: '装備を削除しました。'
+    end
 
-  def armor_params
-    params.require(:armor).permit(:type, :name)
-  end
+    private
 
-  def head_armor_params
-    params.require(:head_armor).permit(:type, :name)
-  end
+    def set_armor
+      @armor = Armor.find(params[:id])
+    end
 
-  def body_armor_params
-    params.require(:body_armor).permit(:type, :name)
-  end
+    def armor_params
+      params.require(:armor).permit(:type, :name)
+    end
 
-  def arm_armor_params
-    params.require(:arm_armor).permit(:type, :name)
-  end
+    def head_armor_params
+      params.require(:head_armor).permit(:type, :name)
+    end
 
-  def waist_armor_params
-    params.require(:waist_armor).permit(:type, :name)
-  end
+    def body_armor_params
+      params.require(:body_armor).permit(:type, :name)
+    end
 
-  def foot_armor_params
-    params.require(:foot_armor).permit(:type, :name)
+    def arm_armor_params
+      params.require(:arm_armor).permit(:type, :name)
+    end
+
+    def waist_armor_params
+      params.require(:waist_armor).permit(:type, :name)
+    end
+
+    def foot_armor_params
+      params.require(:foot_armor).permit(:type, :name)
+    end
   end
 end

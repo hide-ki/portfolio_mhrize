@@ -1,2 +1,4 @@
-module Admin::StaticPagesHelper
+module Admin
+  module StaticPagesHelper
+  end
 end

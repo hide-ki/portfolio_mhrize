@@ -1,2 +1,4 @@
-module Admin::ArmorsHelper
+module Admin
+  module ArmorsHelper
+  end
 end

@@ -1,2 +1,4 @@
-module Admin::BaseHelper
+module Admin
+  module BaseHelper
+  end
 end
