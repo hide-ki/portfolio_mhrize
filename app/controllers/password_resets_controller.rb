@@ -1,5 +1,6 @@
 class PasswordResetsController < ApplicationController
   skip_before_action :require_login
+  before_action :set_user, only: [:edit, :update]
 
   def new; end
 
@@ -14,14 +15,10 @@ class PasswordResetsController < ApplicationController
   def edit
     # idのところにtokenが使用されている
     # tokenからuserを取得する
-    @token = params[:id]
-    @user = User.load_from_reset_password_token(@token)
     return not_authenticated if @user.blank?
   end
 
   def update
-    @token = params[:id]
-    @user = User.load_from_reset_password_token(@token)
     return not_authenticated if @user.blank?
 
     @user.password_confirmation = params[:user][:password_confirmation]
@@ -31,5 +28,12 @@ class PasswordResetsController < ApplicationController
       flash.now[:danger] = 'パスワードの更新に失敗しました。'
       render :edit
     end
+  end
+
+  private
+
+  def set_user
+    @token = params[:id]
+    @user = User.load_from_reset_password_token(@token)
   end
 end

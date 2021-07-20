@@ -4,6 +4,6 @@ FactoryBot.define do
     hue { 1 }
     saturation { 1 }
     value { 1 }
-    post { nil }
+    post
   end
 end

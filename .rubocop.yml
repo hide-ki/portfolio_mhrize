@@ -19,3 +19,9 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
     - "db/schema.rb"
+
+Metrics/AbcSize:
+  Max: 25
+
+Metrics/MethodLength:
+  Max: 20

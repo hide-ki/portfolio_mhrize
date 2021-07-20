@@ -58,26 +58,26 @@
         .color-fields
           .color-field
             /= ff.label :hue
-            = ff.number_field :hue, { max: 300 }
+            = ff.number_field :hue, { max: 360 }
           .color-field
             /= ff.label :saturation
-            = ff.number_field :saturation, { max: 300 }
+            = ff.number_field :saturation, { max: 100 }
           .color-field
             /= ff.label :value
-            = ff.number_field :value, { max: 300 }
+            = ff.number_field :value, { max: 100 }
 
     .second-color-form
       = f.fields_for :second_colors do |fff|
         .color-fields
           .color-field
             /= fff.label :hue
-            = fff.number_field :hue, { max: 300 }
+            = fff.number_field :hue, { max: 360 }
           .color-field
             /= fff.label :saturation
-            = fff.number_field :saturation, { max: 300 }
+            = fff.number_field :saturation, { max: 100 }
           .color-field
             /= fff.label :value
-            = fff.number_field :value, { max: 300 }
+            = fff.number_field :value, { max: 100 }
 
   .actions.text-center.mt-5
     = f.submit button_name
