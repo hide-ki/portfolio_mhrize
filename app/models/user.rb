@@ -2,8 +2,8 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   validates :name, presence: true, length: { maximum: 255 }
-  validates :email, # presence: true,
-                    # uniqueness: { case_sensitive: false },
+  validates :email, presence: true,
+                    uniqueness: { case_sensitive: false },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
