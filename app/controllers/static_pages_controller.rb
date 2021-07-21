@@ -6,6 +6,14 @@ class StaticPagesController < ApplicationController
     @posts = @q.result(distinct: true).page(params[:page]).order(created_at: :desc)
   end
 
+  def contact
+
+  end
+
+  def privacy
+    
+  end
+
   private
 
   def search_params

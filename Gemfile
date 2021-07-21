@@ -82,3 +82,5 @@ gem 'uglifier'
 gem 'jquery-rails'
 gem 'bootstrap'
 gem 'font-awesome-sass'
+
+gem 'dotenv-rails'

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback"
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   root 'static_pages#top'
+  get 'contact', to: 'static_pages#contact'
+  get 'term', to: 'static_pages#privacy'
   namespace :admin do
     root 'static_pages#top'
     resources :armors, only: [:index, :new, :create, :edit, :update, :destroy]

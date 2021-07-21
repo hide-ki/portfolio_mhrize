@@ -22,3 +22,6 @@
 
   .text-center.mb-3.mt-3
     = link_to 'パスワードを忘れた方はこちら', new_password_reset_path, class: 'reset-password'
+
+  .text-center.mb-3.mt-3
+    = link_to 'Login with Twitter', auth_at_provider_path(provider: :twitter)

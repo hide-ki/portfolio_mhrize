@@ -2,8 +2,8 @@ class User < ApplicationRecord
   authenticates_with_sorcery!
 
   validates :name, presence: true, length: { maximum: 255 }
-  validates :email, presence: true,
-                    uniqueness: { case_sensitive: false },
+  validates :email, # presence: true,
+                    # uniqueness: { case_sensitive: false },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :like_posts, through: :likes, source: :post
+  has_many :authentications, dependent: :destroy
+  accepts_nested_attributes_for :authentications
 
   enum role: { general: 0, admin: 1 }
 
