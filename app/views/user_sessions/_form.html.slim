@@ -1,5 +1,9 @@
 = form_with model: user, url: url, local: true do |f|
   
+  .text-center.mb-3.mt-3
+    = link_to auth_at_provider_path(provider: :twitter) do
+      i.fab.fa-twitter style='color: #3399FF;'
+      | Twitterでログイン
   .mx-auto
     .field
       = f.label :email, User.human_attribute_name(:email), class: 'col-md-12'
@@ -23,5 +27,3 @@
   .text-center.mb-3.mt-3
     = link_to 'パスワードを忘れた方はこちら', new_password_reset_path, class: 'reset-password'
 
-  .text-center.mb-3.mt-3
-    = link_to 'Login with Twitter', auth_at_provider_path(provider: :twitter)

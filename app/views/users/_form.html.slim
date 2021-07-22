@@ -2,6 +2,10 @@
 
   = render 'shared/error_message', object: f.object
 
+  .text-center.mb-3.mt-3
+    = link_to auth_at_provider_path(provider: :twitter) do
+      i.fab.fa-twitter style='color: #3399FF;'
+      | Twitterでログイン
   .mx-auto
     .field
       = f.label :name, class: 'col-md-12'
