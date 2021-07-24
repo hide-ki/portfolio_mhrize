@@ -76,3 +76,6 @@ ja:
   favorites:
     index:
       title: 'お気に入り一覧'
+  contacts:
+    new:
+      title: 'お問い合わせ'

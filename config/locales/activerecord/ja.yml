@@ -5,6 +5,7 @@ ja:
       post: 投稿
       first_color: 着彩1
       second_color: 着彩2
+      contact: お問い合わせ
     attributes:
       user:
         id: ID
@@ -62,3 +63,7 @@ ja:
       foot_armor:
         type: '脚部'
         name: '名前'
+      contact:
+        name: 'お名前'
+        email: 'メールアドレス'
+        message: 'お問い合わせ内容'
