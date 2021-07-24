@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get "oauth/callback" => "oauths#callback"
   get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
   root 'static_pages#top'
-  get 'contact', to: 'static_pages#contact'
   get 'term', to: 'static_pages#privacy'
   namespace :admin do
     root 'static_pages#top'
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:show, :new, :create, :edit, :update, :destroy] do
     resources :likes, only: [:create, :destroy]
   end
+  resources :contacts, only: [:new, :create]
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
