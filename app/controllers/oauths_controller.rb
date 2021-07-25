@@ -8,14 +8,12 @@ class OauthsController < ApplicationController
   def callback
     provider = params[:provider]
     redirect_to login_url, success: 'ログインをキャンセルしました' if params[:denied].present?
-    if (@user = login_from(provider))
-      flash[:success] = "#{provider.titleize}でログインしました"
-    else
+    unless (@user = login_from(provider))
       @user = create_from(provider)
       reset_session
       auto_login(@user)
-      flash[:success] = "#{provider.titleize}でログインしました"
     end
+    flash[:success] = "#{provider.titleize}でログインしました"
     redirect_to root_path
   end
 end

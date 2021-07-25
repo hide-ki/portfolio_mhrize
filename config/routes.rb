@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  post "oauth/callback" => "oauths#callback"
-  get "oauth/callback" => "oauths#callback"
-  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  post 'oauth/callback' => 'oauths#callback'
+  get 'oauth/callback' => 'oauths#callback'
+  get 'oauth/:provider' => 'oauths#oauth', :as => :auth_at_provider
   root 'static_pages#top'
   get 'static_pages/term'
   get 'static_pages/privacy'

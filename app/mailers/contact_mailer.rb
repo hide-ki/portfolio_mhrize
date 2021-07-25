@@ -1,5 +1,4 @@
 class ContactMailer < ApplicationMailer
-
   def contact_mail(contact)
     @contact = contact
     # デプロイしたら自分のメールアドレスに変更
