@@ -17,7 +17,7 @@ html
 
   body
     header
-      = header
+      = render 'shared/header'
     - if flash.any?
       = render 'shared/flash_message'
     = render 'shared/title_name'
